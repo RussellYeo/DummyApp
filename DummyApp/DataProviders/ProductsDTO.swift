@@ -18,8 +18,8 @@ struct ProductDTO: Decodable, Equatable {
     let stock: UInt
     let brand: String
     let category: String
-    let thumbnail: String
-    let images: Array<String>
+    let thumbnail: URL
+    let images: Array<URL>
 }
 
 extension ProductDTO {

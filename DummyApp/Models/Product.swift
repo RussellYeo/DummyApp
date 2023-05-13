@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product {
+struct Product: Identifiable {
     let id: Int
     let title: String
     let description: String
@@ -17,6 +17,6 @@ struct Product {
     let stock: UInt
     let brand: String
     let category: String
-    let thumbnail: String
-    let images: Array<String>
+    let thumbnail: URL
+    let images: Array<URL>
 }
