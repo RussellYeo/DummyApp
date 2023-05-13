@@ -15,4 +15,14 @@ struct HTTPResource {
     let queryItems: Array<URLQueryItem>
     /// A closure that checks the status code of the HTTP response
     let checkStatusCode: (Int) -> Bool
+    
+    init(
+        path: String,
+        queryItems: Array<URLQueryItem> = [],
+        checkStatusCode: @escaping (Int) -> Bool = { $0 == 200 }
+    ) {
+        self.path = path
+        self.queryItems = queryItems
+        self.checkStatusCode = checkStatusCode
+    }
 }
