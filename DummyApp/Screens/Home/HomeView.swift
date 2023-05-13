@@ -41,13 +41,16 @@ struct HomeView: View {
                                 .frame(width: cellWidth, height: cellWidth)
                                 .cornerRadius(10)
                                 .clipped()
+                                .onAppear {
+                                    model.onAppearProduct(product: product)
+                                }
                         }
                     }
                     .padding(16)
                 }
             }
             .onAppear {
-                model.fetchProducts()
+                model.fetchFirstPage()
             }
             .navigationTitle("Products")
         }
