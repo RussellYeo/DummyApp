@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CartView: View {
     var body: some View {
-        Text("Cart")
+        NavigationView {
+            Text("Cart")
+                .navigationTitle("Cart")
+        }
     }
 }

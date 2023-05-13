@@ -30,33 +30,36 @@ struct HomeView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView {
-                let imageWidth = Constants.imageWidth(for: geometry.size.width)
-                
-                LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(model.products) { product in
-                        AsyncImage(url: product.thumbnail) { phase in
-                            switch phase {
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                            default:
-                                Color.gray
-                                    .opacity(0.5)
+        NavigationView {
+            GeometryReader { geometry in
+                ScrollView {
+                    let imageWidth = Constants.imageWidth(for: geometry.size.width)
+                    
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(model.products) { product in
+                            AsyncImage(url: product.thumbnail) { phase in
+                                switch phase {
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                default:
+                                    Color.gray
+                                        .opacity(0.5)
+                                }
                             }
+                            .frame(width: imageWidth, height: imageWidth)
+                            .cornerRadius(10)
+                            .clipped()
                         }
-                        .frame(width: imageWidth, height: imageWidth)
-                        .cornerRadius(10)
-                        .clipped()
                     }
+                    .padding(16)
                 }
-                .padding(16)
             }
-        }
-        .onAppear {
-            model.fetchProducts()
+            .onAppear {
+                model.fetchProducts()
+            }
+            .navigationTitle("Products")
         }
     }
 }
