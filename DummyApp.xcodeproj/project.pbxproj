@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46636B112A0F92D000624D9C /* DummyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B102A0F92D000624D9C /* DummyAppApp.swift */; };
+		46636B112A0F92D000624D9C /* DummyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B102A0F92D000624D9C /* DummyApp.swift */; };
 		46636B132A0F92D000624D9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B122A0F92D000624D9C /* ContentView.swift */; };
 		46636B152A0F92D100624D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46636B142A0F92D100624D9C /* Assets.xcassets */; };
 		46636B182A0F92D100624D9C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46636B172A0F92D100624D9C /* Preview Assets.xcassets */; };
@@ -15,7 +15,7 @@
 
 /* Begin PBXFileReference section */
 		46636B0D2A0F92D000624D9C /* DummyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		46636B102A0F92D000624D9C /* DummyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAppApp.swift; sourceTree = "<group>"; };
+		46636B102A0F92D000624D9C /* DummyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyApp.swift; sourceTree = "<group>"; };
 		46636B122A0F92D000624D9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46636B142A0F92D100624D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46636B172A0F92D100624D9C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		46636B0F2A0F92D000624D9C /* DummyApp */ = {
 			isa = PBXGroup;
 			children = (
-				46636B102A0F92D000624D9C /* DummyAppApp.swift */,
+				46636B102A0F92D000624D9C /* DummyApp.swift */,
 				46636B122A0F92D000624D9C /* ContentView.swift */,
 				46636B142A0F92D100624D9C /* Assets.xcassets */,
 				46636B162A0F92D100624D9C /* Preview Content */,
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46636B132A0F92D000624D9C /* ContentView.swift in Sources */,
-				46636B112A0F92D000624D9C /* DummyAppApp.swift in Sources */,
+				46636B112A0F92D000624D9C /* DummyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
