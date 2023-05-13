@@ -24,7 +24,7 @@ struct HomeView: View {
             return (padding * columns) + (spacing * (columns - 1))
         }
         
-        static func imageWidth(for screenWidth: CGFloat) -> CGFloat {
+        static func cellWidth(in screenWidth: CGFloat) -> CGFloat {
             return (screenWidth - Constants.totalSpacing) / Constants.columns
         }
     }
@@ -33,24 +33,14 @@ struct HomeView: View {
         NavigationView {
             GeometryReader { geometry in
                 ScrollView {
-                    let imageWidth = Constants.imageWidth(for: geometry.size.width)
+                    let cellWidth = Constants.cellWidth(in: geometry.size.width)
                     
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(model.products) { product in
-                            AsyncImage(url: product.thumbnail) { phase in
-                                switch phase {
-                                case .success(let image):
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                default:
-                                    Color.gray
-                                        .opacity(0.5)
-                                }
-                            }
-                            .frame(width: imageWidth, height: imageWidth)
-                            .cornerRadius(10)
-                            .clipped()
+                            ProductCell(product: product)
+                                .frame(width: cellWidth, height: cellWidth)
+                                .cornerRadius(10)
+                                .clipped()
                         }
                     }
                     .padding(16)
@@ -63,4 +53,3 @@ struct HomeView: View {
         }
     }
 }
-
