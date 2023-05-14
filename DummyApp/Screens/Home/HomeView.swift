@@ -31,28 +31,36 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            GeometryReader { geometry in
-                ScrollView {
-                    let cellWidth = Constants.cellWidth(in: geometry.size.width)
-                    
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(model.products) { product in
-                            ProductCell(product: product)
-                                .frame(width: cellWidth, height: cellWidth)
-                                .cornerRadius(10)
-                                .clipped()
-                                .onAppear {
-                                    model.onAppearProduct(product: product)
-                                }
-                        }
-                    }
-                    .padding(16)
+            if model.error != nil {
+                VStack {
+                    Spacer()
+                    EmptyStateView(model: .emptyItems)
+                    Spacer()
                 }
+            } else {
+                GeometryReader { geometry in
+                    ScrollView {
+                        let cellWidth = Constants.cellWidth(in: geometry.size.width)
+                        
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(model.products) { product in
+                                ProductCell(product: product)
+                                    .frame(width: cellWidth, height: cellWidth)
+                                    .cornerRadius(10)
+                                    .clipped()
+                                    .onAppear {
+                                        model.onAppearProduct(product: product)
+                                    }
+                            }
+                        }
+                        .padding(16)
+                    }
+                }
+                .onAppear {
+                    model.fetchFirstPage()
+                }
+                .navigationTitle("Products")
             }
-            .onAppear {
-                model.fetchFirstPage()
-            }
-            .navigationTitle("Products")
         }
     }
 }

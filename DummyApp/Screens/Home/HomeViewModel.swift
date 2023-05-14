@@ -10,6 +10,7 @@ import Combine
 
 final class HomeViewModel: ObservableObject {
     @Published var products: [Product] = []
+    @Published var error: Error?
     
     private let productsProvider = ProductsProviderImpl()
     private var subscriptions = Set<AnyCancellable>()
@@ -22,10 +23,11 @@ final class HomeViewModel: ObservableObject {
     func fetchNextPage() {
         productsProvider.getProducts(skip: products.count)
             .receive(on: DispatchQueue.main)
+            .map { page in page.products.map(\.model) }
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { page in
-                    self.products += page.products.map(\.model)
+                receiveValue: { products in
+                    self.products += products
                 }
             )
             .store(in: &subscriptions)
