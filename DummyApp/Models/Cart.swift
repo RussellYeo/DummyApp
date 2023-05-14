@@ -11,7 +11,7 @@ import Foundation
 final class Cart {
     @Published var products: [Product: UInt] = [:]
     @Published var totalPrice: Decimal = 0.0
-    @Published var totalProducts: Int = 0
+    @Published var totalProducts: UInt = 0
     @Published var totalQuantity: UInt = 0
     
     func add(product: Product) {

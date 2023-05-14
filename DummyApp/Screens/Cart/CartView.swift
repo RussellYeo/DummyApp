@@ -5,34 +5,42 @@
 //  Created by Russell Yeo on 13/05/2023.
 //
 
+import Combine
 import SwiftUI
 
 struct CartView: View {
-    @StateObject var viewModel: CartViewModel = .init()
+    @StateObject var viewModel: CartViewModel
+    
+    init(cartProvider: CartProvider) {
+        let viewModel = CartViewModel(cartProvider: cartProvider)
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         NavigationView {
-            if viewModel.cart.products.isEmpty {
-                VStack {
-                    Spacer()
-                    EmptyStateView(model: .emptyCart)
-                    Spacer()
-                }
-            } else {
-                ScrollView {
-                    List {
-                        ForEach(Array(viewModel.cart.products.keys)) { product in
-                            ProductCell(product: product)
-                                .frame(height: 80)
-                        }
-                        Text("Total Price: \(viewModel.formattedPrice())")
-                        Text("Total Quantity: \(viewModel.cart.totalQuantity)")
-                        Text("Total Products: \(viewModel.cart.totalProducts)")
+            VStack {
+                if viewModel.isEmptyState {
+                    VStack {
+                        Spacer()
+                        EmptyStateView(model: .emptyCart)
+                        Spacer()
                     }
-                    .padding(16)
+                } else {
+                    List(viewModel.products, id: \.id) { cartProduct in
+                        CartCell(cartProduct: cartProduct)
+                    }
+                    .listStyle(.plain)
                 }
             }
+            .navigationTitle("Cart")
+            .onAppear(perform: viewModel.reload)
         }
-        .navigationTitle("Cart")
+    }
+}
+
+
+struct CartView_Previews: PreviewProvider {
+    static var previews: some View {
+        CartView(cartProvider: CartProviderPreviewSupport())
     }
 }

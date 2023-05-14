@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
+    private let cartProvider: CartProvider
+    
     @StateObject var viewModel: HomeViewModel
     
-    init(productsProvider: ProductsProvider) {
+    init(cartProvider: CartProvider, productsProvider: ProductsProvider) {
+        self.cartProvider = cartProvider
         self._viewModel = StateObject(wrappedValue: HomeViewModel(productsProvider: productsProvider))
     }
     
@@ -48,13 +51,20 @@ struct HomeView: View {
                         
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(viewModel.products) { product in
-                                ProductCell(product: product)
-                                    .frame(width: cellWidth, height: cellWidth)
-                                    .cornerRadius(10)
-                                    .clipped()
-                                    .onAppear {
-                                        viewModel.onAppearProduct(product: product)
-                                    }
+                                NavigationLink(
+                                    destination: ProductDetailsView(
+                                        product: product,
+                                        cartProvider: cartProvider
+                                    )
+                                ) {
+                                    ProductCell(product: product)
+                                        .frame(width: cellWidth, height: cellWidth)
+                                        .cornerRadius(10)
+                                        .clipped()
+                                        .onAppear {
+                                            viewModel.onAppearProduct(product: product)
+                                        }
+                                }
                             }
                         }
                         .padding(16)
@@ -66,5 +76,14 @@ struct HomeView: View {
                 .navigationTitle("Products")
             }
         }
+    }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView(
+            cartProvider: CartProviderPreviewSupport(),
+            productsProvider: ProductsProviderPreviewSupport()
+        )
     }
 }

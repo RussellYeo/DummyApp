@@ -1,17 +1,17 @@
 //
-//  ProductCell.swift
+//  ProductImage.swift
 //  DummyApp
 //
-//  Created by Russell Yeo on 13/05/2023.
+//  Created by Russell Yeo on 14/05/2023.
 //
 
 import SwiftUI
 
-struct ProductCell: View {
-    let product: Product
+struct ProductImage: View {
+    let url: URL
     
     var body: some View {
-        AsyncImage(url: product.thumbnail) { phase in
+        AsyncImage(url: url) { phase in
             switch phase {
             case .empty:
                 ZStack {
@@ -23,11 +23,9 @@ struct ProductCell: View {
                     .resizable()
                     .scaledToFill()
             case .failure:
-                Color.gray
-                    .opacity(0.5)
+                Color.gray.opacity(0.5)
             @unknown default:
-                Color.gray
-                    .opacity(0.5)
+                Color.gray.opacity(0.5)
             }
         }
     }

@@ -13,7 +13,7 @@ final class HomeViewModel: ObservableObject {
     @Published var error: Error?
     
     private let productsProvider: ProductsProvider
-    private var subscriptions = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     init(productsProvider: ProductsProvider) {
         self.productsProvider = productsProvider
@@ -34,7 +34,7 @@ final class HomeViewModel: ObservableObject {
                     self.products += products
                 }
             )
-            .store(in: &subscriptions)
+            .store(in: &cancellables)
     }
     
     func onAppearProduct(product: Product) {
