@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    let productsProvider: ProductsProvider
+    
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(productsProvider: productsProvider)
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
@@ -26,6 +28,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(productsProvider: ProductsProviderPreviewSupport())
     }
 }

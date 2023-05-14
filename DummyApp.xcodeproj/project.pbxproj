@@ -29,6 +29,7 @@
 		46636B6D2A0FEB3800624D9C /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B6C2A0FEB3800624D9C /* CartViewModel.swift */; };
 		46636B702A100B5E00624D9C /* CartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B6F2A100B5E00624D9C /* CartTests.swift */; };
 		46636B722A10CE7A00624D9C /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B712A10CE7A00624D9C /* EmptyState.swift */; };
+		46636B742A10E1C700624D9C /* ProductsProviderPreviewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B732A10E1C700624D9C /* ProductsProviderPreviewSupport.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		46636B6C2A0FEB3800624D9C /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		46636B6F2A100B5E00624D9C /* CartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTests.swift; sourceTree = "<group>"; };
 		46636B712A10CE7A00624D9C /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
+		46636B732A10E1C700624D9C /* ProductsProviderPreviewSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsProviderPreviewSupport.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				46636B422A0FACC800624D9C /* ProductsDTO.swift */,
 				46636B402A0FACB600624D9C /* ProductsPage.swift */,
 				46636B3E2A0FAC9B00624D9C /* ProductsProvider.swift */,
+				46636B732A10E1C700624D9C /* ProductsProviderPreviewSupport.swift */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				46636B412A0FACB600624D9C /* ProductsPage.swift in Sources */,
 				46636B132A0F92D000624D9C /* ContentView.swift in Sources */,
 				46636B462A0FACDB00624D9C /* Product.swift in Sources */,
+				46636B742A10E1C700624D9C /* ProductsProviderPreviewSupport.swift in Sources */,
 				46636B222A0F93CB00624D9C /* HTTPResource.swift in Sources */,
 				46636B5F2A0FD2B400624D9C /* ProductCell.swift in Sources */,
 				46636B242A0F93E300624D9C /* HTTPClientError.swift in Sources */,

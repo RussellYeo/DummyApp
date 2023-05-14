@@ -25,5 +25,4 @@ final class CartViewModel: ObservableObject {
         formatter.numberStyle = .currency
         return formatter
     }
-        
 }

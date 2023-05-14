@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var model: HomeViewModel = .init()
+    @StateObject var viewModel: HomeViewModel
+    
+    init(productsProvider: ProductsProvider) {
+        self._viewModel = StateObject(wrappedValue: HomeViewModel(productsProvider: productsProvider))
+    }
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -31,7 +35,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            if model.error != nil {
+            if viewModel.error != nil {
                 VStack {
                     Spacer()
                     EmptyStateView(model: .emptyItems)
@@ -43,13 +47,13 @@ struct HomeView: View {
                         let cellWidth = Constants.cellWidth(in: geometry.size.width)
                         
                         LazyVGrid(columns: columns, spacing: 16) {
-                            ForEach(model.products) { product in
+                            ForEach(viewModel.products) { product in
                                 ProductCell(product: product)
                                     .frame(width: cellWidth, height: cellWidth)
                                     .cornerRadius(10)
                                     .clipped()
                                     .onAppear {
-                                        model.onAppearProduct(product: product)
+                                        viewModel.onAppearProduct(product: product)
                                     }
                             }
                         }
@@ -57,7 +61,7 @@ struct HomeView: View {
                     }
                 }
                 .onAppear {
-                    model.fetchFirstPage()
+                    viewModel.fetchFirstPage()
                 }
                 .navigationTitle("Products")
             }

@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CartView: View {
-    @ObservedObject var model: CartViewModel = .init()
+    @StateObject var viewModel: CartViewModel = .init()
     
     var body: some View {
         NavigationView {
-            if model.cart.products.isEmpty {
+            if viewModel.cart.products.isEmpty {
                 VStack {
                     Spacer()
                     EmptyStateView(model: .emptyCart)
@@ -21,13 +21,13 @@ struct CartView: View {
             } else {
                 ScrollView {
                     List {
-                        ForEach(Array(model.cart.products.keys)) { product in
+                        ForEach(Array(viewModel.cart.products.keys)) { product in
                             ProductCell(product: product)
                                 .frame(height: 80)
                         }
-                        Text("Total Price: \(model.formattedPrice())")
-                        Text("Total Quantity: \(model.cart.totalQuantity)")
-                        Text("Total Products: \(model.cart.totalProducts)")
+                        Text("Total Price: \(viewModel.formattedPrice())")
+                        Text("Total Quantity: \(viewModel.cart.totalQuantity)")
+                        Text("Total Products: \(viewModel.cart.totalProducts)")
                     }
                     .padding(16)
                 }

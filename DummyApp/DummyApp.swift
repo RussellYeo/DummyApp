@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct DummyApp: App {
+    private let productsProvider = ProductsProviderImpl()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(productsProvider: productsProvider)
         }
     }
 }

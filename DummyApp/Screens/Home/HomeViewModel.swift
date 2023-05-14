@@ -12,8 +12,12 @@ final class HomeViewModel: ObservableObject {
     @Published var products: [Product] = []
     @Published var error: Error?
     
-    private let productsProvider = ProductsProviderImpl()
+    private let productsProvider: ProductsProvider
     private var subscriptions = Set<AnyCancellable>()
+    
+    init(productsProvider: ProductsProvider) {
+        self.productsProvider = productsProvider
+    }
     
     func fetchFirstPage() {
         guard products.count == 0 else { return }
