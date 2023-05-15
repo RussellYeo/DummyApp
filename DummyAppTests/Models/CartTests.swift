@@ -1,5 +1,5 @@
 //
-//  CartTests.swift
+//  CartStorage.swift
 //  DummyAppTests
 //
 //  Created by Russell Yeo on 13/05/2023.
@@ -8,12 +8,12 @@
 @testable import DummyApp
 import XCTest
 
-final class CartTests: XCTestCase {
-    var cart: Cart!
+final class CartStorageTests: XCTestCase {
+    var cart: CartStorage!
     
     override func setUp() {
         super.setUp()
-        cart = Cart()
+        cart = CartStorage()
     }
     
     override func tearDown() {
