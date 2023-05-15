@@ -171,10 +171,10 @@
 		46636B2A2A0F996000624D9C /* DummyAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				46636BA12A125F6000624D9C /* DataProviders */,
 				46636B922A1250A300624D9C /* Screens */,
 				46636B6E2A100B4400624D9C /* Models */,
 				46636B322A0F9B5B00624D9C /* TestDoubles */,
-				46636B472A0FAD6500624D9C /* ProductsProviderTests.swift */,
 			);
 			path = DummyAppTests;
 			sourceTree = "<group>";
@@ -295,6 +295,14 @@
 				46636B9D2A125E0300624D9C /* HomeViewModelTests.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		46636BA12A125F6000624D9C /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				46636B472A0FAD6500624D9C /* ProductsProviderTests.swift */,
+			);
+			path = DataProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
