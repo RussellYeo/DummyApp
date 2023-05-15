@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CartCell: View {
-    let cartProduct: CartProduct
+    @Binding var cartProduct: CartProduct
     
     var body: some View {
         HStack {
@@ -17,7 +17,34 @@ struct CartCell: View {
                 .clipped()
                 .cornerRadius(6)
             
-            Text(cartProduct.product.title)
+            VStack(alignment: .leading) {
+                Text(cartProduct.product.title)
+                Text("Quantity: \(cartProduct.quantity)")
+            }
+            
+            Spacer()
+            
+            Stepper(
+                onIncrement: {
+                    cartProduct.quantity += 1
+                },
+                onDecrement: {
+                    if cartProduct.quantity > 1 {
+                        cartProduct.quantity -= 1
+                    }
+                },
+                label: {}
+            )
+        }
+    }
+}
+
+struct CartCell_Previews: PreviewProvider {
+    static var previews: some View {
+        List {
+            CartCell(cartProduct: .constant(.init(product: ProductDTO.iPhoneX.model, quantity: 2)))
+            CartCell(cartProduct: .constant(.init(product: ProductDTO.samsungUniverse.model, quantity: 1)))
+            CartCell(cartProduct: .constant(.init(product: ProductDTO.iPhone9.model, quantity: 1)))
         }
     }
 }

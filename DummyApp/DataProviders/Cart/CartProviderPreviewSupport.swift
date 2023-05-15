@@ -32,4 +32,8 @@ final class CartProviderPreviewSupport: CartProvider {
     func addToCart(_ product: Product) {
         //
     }
+    
+    func updateQuantity(product: Product, quantity: UInt) {
+        //
+    }
 }

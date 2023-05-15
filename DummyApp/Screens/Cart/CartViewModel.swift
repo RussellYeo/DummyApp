@@ -14,8 +14,13 @@ final class CartViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
+    private var productsSubject = CurrentValueSubject<[CartProduct], Never>([])
+    var products: [CartProduct] {
+        get { productsSubject.value }
+        set { productsSubject.send(newValue) }
+    }
+     
     @Published var isEmptyState: Bool = true
-    @Published var products: [CartProduct] = []
     @Published var totalPrice: String?
     @Published var totalQuantity: UInt?
     @Published var totalProducts: UInt?
@@ -23,6 +28,7 @@ final class CartViewModel: ObservableObject {
     init(cartProvider: CartProvider) {
         self.cartProvider = cartProvider
         self.currencyFormatter = currencyFormatter
+        self.subscribeToProductsUpdates()
     }
     
     func reload() {
@@ -48,12 +54,25 @@ final class CartViewModel: ObservableObject {
                     self.totalPrice = self.currencyFormatter.string(from: totalPriceNumber)                    
                     
                     self.totalQuantity = cart.totalQuantity
-                    self.totalQuantity = cart.totalProducts
                 }
             )
             .store(in: &cancellables)
     }
     
+    private func subscribeToProductsUpdates() {
+        productsSubject
+            .sink { [weak self] products in
+                guard let self else { return }
+                products.forEach { cartProduct in
+                    self.cartProvider.updateQuantity(
+                        product: cartProduct.product,
+                        quantity: cartProduct.quantity
+                    )
+                }
+            }
+            .store(in: &cancellables)
+    }
+        
     private func createCurrencyFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency

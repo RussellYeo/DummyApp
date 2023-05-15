@@ -9,7 +9,7 @@ import Foundation
 
 struct CartProduct {
     let product: Product
-    let quantity: UInt
+    var quantity: UInt
 }
 
 extension CartProduct: Identifiable {

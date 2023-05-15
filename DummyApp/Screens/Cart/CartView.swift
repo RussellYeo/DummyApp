@@ -28,8 +28,8 @@ struct CartView: View {
                 } else {
                     List {
                         Section {
-                            ForEach(viewModel.products, id: \.id) { cartProduct in
-                                CartCell(cartProduct: cartProduct)
+                            ForEach(viewModel.products.indices, id: \.self) { index in
+                                CartCell(cartProduct: self.$viewModel.products[index])
                             }
                         }
                         Section {

@@ -5,14 +5,13 @@
 //  Created by Russell Yeo on 15/05/2023.
 //
 
-import Combine
 import Foundation
 
 final class CartStorage {
-    @Published var products: [Product: UInt] = [:]
-    @Published var totalPrice: Decimal = 0.0
-    @Published var totalProducts: UInt = 0
-    @Published var totalQuantity: UInt = 0
+    var products: [Product: UInt] = [:]
+    var totalPrice: Decimal = 0.0
+    var totalProducts: UInt = 0
+    var totalQuantity: UInt = 0
     
     func add(product: Product) {
         if let existingProductQuantity = products[product] {
@@ -23,5 +22,18 @@ final class CartStorage {
         }
         totalPrice += product.price
         totalQuantity += 1
+    }
+    
+    func update(product: Product, quantity: UInt) -> Bool {
+        guard
+            products[product] != nil,
+            products[product] != quantity
+        else {
+            return false
+        }
+        products[product] = quantity
+        totalPrice += product.price
+        totalQuantity += 1
+        return true
     }
 }

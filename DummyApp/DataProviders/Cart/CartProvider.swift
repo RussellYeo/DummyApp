@@ -13,13 +13,15 @@ protocol CartProvider {
     var cartPublisher: AnyPublisher<Cart, Never> { get }
     /// Add a product to the cart
     func addToCart(_ product: Product)
+    /// Update the quantity of a product in the cart
+    func updateQuantity(product: Product, quantity: UInt)
 }
 
 final class CartProviderImpl: CartProvider {
-    @Published private var cart: CartStorage = .init()
-    
+    private let cart = CurrentValueSubject<CartStorage, Never>(.init())
+
     var cartPublisher: AnyPublisher<Cart, Never> {
-        $cart
+        cart
             .map { (cart) in
                 let products = cart.products.map { (product, quantity) in
                     CartProduct(product: product, quantity: quantity)
@@ -35,7 +37,13 @@ final class CartProviderImpl: CartProvider {
     }
     
     func addToCart(_ product: Product) {
-        cart.add(product: product)
+        cart.value.add(product: product)
+    }
+    
+    func updateQuantity(product: Product, quantity: UInt) {
+        if cart.value.update(product: product, quantity: quantity) {
+            cart.send(cart.value)
+        }
     }
     
 }
