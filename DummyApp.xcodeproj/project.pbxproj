@@ -42,6 +42,8 @@
 		46636B8C2A120A5A00624D9C /* CartStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B8B2A120A5A00624D9C /* CartStorage.swift */; };
 		46636B942A1250BA00624D9C /* CartViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B932A1250BA00624D9C /* CartViewModelTests.swift */; };
 		46636B962A12512300624D9C /* CartProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B952A12512300624D9C /* CartProviderMock.swift */; };
+		46636B9E2A125E0300624D9C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B9D2A125E0300624D9C /* HomeViewModelTests.swift */; };
+		46636BA02A125E2900624D9C /* ProductsProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B9F2A125E2900624D9C /* ProductsProviderMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		46636B8B2A120A5A00624D9C /* CartStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartStorage.swift; sourceTree = "<group>"; };
 		46636B932A1250BA00624D9C /* CartViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModelTests.swift; sourceTree = "<group>"; };
 		46636B952A12512300624D9C /* CartProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartProviderMock.swift; sourceTree = "<group>"; };
+		46636B9D2A125E0300624D9C /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		46636B9F2A125E2900624D9C /* ProductsProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsProviderMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 				46636B492A0FAD9200624D9C /* HTTPClientMock.swift */,
 				46636B532A0FB93700624D9C /* ProductDTOFactory.swift */,
 				46636B952A12512300624D9C /* CartProviderMock.swift */,
+				46636B9F2A125E2900624D9C /* ProductsProviderMock.swift */,
 			);
 			path = TestDoubles;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				46636B932A1250BA00624D9C /* CartViewModelTests.swift */,
+				46636B9D2A125E0300624D9C /* HomeViewModelTests.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -426,10 +432,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				46636B4A2A0FAD9200624D9C /* HTTPClientMock.swift in Sources */,
+				46636B9E2A125E0300624D9C /* HomeViewModelTests.swift in Sources */,
 				46636B542A0FB93700624D9C /* ProductDTOFactory.swift in Sources */,
 				46636B962A12512300624D9C /* CartProviderMock.swift in Sources */,
 				46636B942A1250BA00624D9C /* CartViewModelTests.swift in Sources */,
 				46636B482A0FAD6500624D9C /* ProductsProviderTests.swift in Sources */,
+				46636BA02A125E2900624D9C /* ProductsProviderMock.swift in Sources */,
 				46636B702A100B5E00624D9C /* CartStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
