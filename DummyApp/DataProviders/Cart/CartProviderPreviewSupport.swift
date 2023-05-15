@@ -14,26 +14,17 @@ final class CartProviderPreviewSupport: CartProvider {
         CartProduct(product: ProductDTO.samsungUniverse.model, quantity: 1)
     ]
     
-    var productsPublisher: AnyPublisher<[CartProduct], Never> {
-        Just(products)
-            .setFailureType(to: Never.self)
-            .eraseToAnyPublisher()
+    private var cart: Cart {
+        Cart(
+            products: products,
+            totalPrice: products.map(\.product).map(\.price).reduce(0, +),
+            totalProducts: UInt(products.count),
+            totalQuantity: products.map(\.quantity).reduce(0, +)
+        )
     }
     
-    var totalPricePublisher: AnyPublisher<Decimal, Never> {
-        Just(products.map(\.product).map(\.price).reduce(0, +))
-            .setFailureType(to: Never.self)
-            .eraseToAnyPublisher()
-    }
-    
-    var totalQuantityPublisher: AnyPublisher<UInt, Never> {
-        Just(UInt(products.map(\.quantity).reduce(0, +)))
-            .setFailureType(to: Never.self)
-            .eraseToAnyPublisher()
-    }
-    
-    var totalProductsPublisher: AnyPublisher<UInt, Never> {
-        Just(UInt(products.count))
+    var cartPublisher: AnyPublisher<Cart, Never> {
+        Just(cart)
             .setFailureType(to: Never.self)
             .eraseToAnyPublisher()
     }

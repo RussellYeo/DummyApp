@@ -9,42 +9,29 @@ import Combine
 import Foundation
 
 protocol CartProvider {
-    /// Publishes an array of CartProduct objects
-    var productsPublisher: AnyPublisher<[CartProduct], Never> { get }
-    /// Publishes the total price of the Cart
-    var totalPricePublisher: AnyPublisher<Decimal, Never> { get }
-    /// Publishes the total quantity of products added to the Cart
-    var totalQuantityPublisher: AnyPublisher<UInt, Never> { get }
-    /// Publishes the total number of products added to the Cart
-    var totalProductsPublisher: AnyPublisher<UInt, Never> { get }
+    /// Emits changes to the Cart
+    var cartPublisher: AnyPublisher<Cart, Never> { get }
     /// Add a product to the cart
     func addToCart(_ product: Product)
 }
 
 final class CartProviderImpl: CartProvider {
-    @Published private var cart: Cart = .init()
+    @Published private var cart: CartStorage = .init()
     
-    var productsPublisher: AnyPublisher<[CartProduct], Never> {
+    var cartPublisher: AnyPublisher<Cart, Never> {
         $cart
-            .map(\.products)
-            .map { (products) in
-                products.map { (product, quantity) in
+            .map { (cart) in
+                let products = cart.products.map { (product, quantity) in
                     CartProduct(product: product, quantity: quantity)
                 }
+                return Cart(
+                    products: products,
+                    totalPrice: cart.totalPrice,
+                    totalProducts: cart.totalProducts,
+                    totalQuantity: cart.totalQuantity
+                )
             }
             .eraseToAnyPublisher()
-    }
-    
-    var totalPricePublisher: AnyPublisher<Decimal, Never> {
-        $cart.map(\.totalPrice).eraseToAnyPublisher()
-    }
-    
-    var totalQuantityPublisher: AnyPublisher<UInt, Never> {
-        $cart.map(\.totalQuantity).eraseToAnyPublisher()
-    }
-    
-    var totalProductsPublisher: AnyPublisher<UInt, Never> {
-        $cart.map(\.totalProducts).eraseToAnyPublisher()
     }
     
     func addToCart(_ product: Product) {

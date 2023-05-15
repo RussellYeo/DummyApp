@@ -26,10 +26,24 @@ struct CartView: View {
                         Spacer()
                     }
                 } else {
-                    List(viewModel.products, id: \.id) { cartProduct in
-                        CartCell(cartProduct: cartProduct)
+                    List {
+                        Section {
+                            ForEach(viewModel.products, id: \.id) { cartProduct in
+                                CartCell(cartProduct: cartProduct)
+                            }
+                        }
+                        Section {
+                            if let totalPrice = viewModel.totalPrice {
+                                Text("Total: \(totalPrice)")
+                            }
+                            if let totalQuantity = viewModel.totalQuantity {
+                                Text("\(totalQuantity) items")
+                            }
+                            if let totalProducts = viewModel.totalProducts {
+                                Text("\(totalProducts) products")
+                            }
+                        }
                     }
-                    .listStyle(.plain)
                 }
             }
             .navigationTitle("Cart")

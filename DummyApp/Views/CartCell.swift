@@ -17,8 +17,6 @@ struct CartCell: View {
                 .clipped()
                 .cornerRadius(6)
             
-            Spacer()
-            
             Text(cartProduct.product.title)
         }
     }
