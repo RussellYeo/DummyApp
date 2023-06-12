@@ -8,25 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    let cartProvider: CartProvider
-    let productsProvider: ProductsProvider
-    
     var body: some View {
         TabView {
             Group {
-                HomeView(
-                    cartProvider: cartProvider,
-                    productsProvider: productsProvider
-                )
-                .tabItem {
+                HomeView().tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-                
-                CartView(
-                    cartProvider: cartProvider
-                )
-                .tabItem {
+                CartView().tabItem {
                     Image(systemName: "bag.fill")
                     Text("Cart")
                 }
@@ -36,10 +25,10 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    private static var storage: CartStorage = .init()
+    
     static var previews: some View {
-        ContentView(
-            cartProvider: CartProviderPreviewSupport(),
-            productsProvider: ProductsProviderPreviewSupport()
-        )
+        ContentView()
+            .environmentObject(storage)
     }
 }

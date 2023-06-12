@@ -5,19 +5,17 @@
 //  Created by Russell Yeo on 13/05/2023.
 //
 
-import Foundation
 import Combine
+import Dependencies
+import Foundation
 
 final class HomeViewModel: ObservableObject {
+    @Dependency(\.productsClient) var productsClient
+    
     @Published var products: [Product] = []
     @Published var error: Error?
     
-    private let productsProvider: ProductsProvider
     private var cancellables = Set<AnyCancellable>()
-    
-    init(productsProvider: ProductsProvider) {
-        self.productsProvider = productsProvider
-    }
     
     func fetchFirstPage() {
         guard products.count == 0 else { return }
@@ -25,7 +23,8 @@ final class HomeViewModel: ObservableObject {
     }
     
     func fetchNextPage() {
-        productsProvider.getProducts(skip: products.count)
+        productsClient
+            .getProducts(products.count, 30)
             .receive(on: DispatchQueue.main)
             .map { page in page.products.map(\.model) }
             .sink(

@@ -1,5 +1,5 @@
 //
-//  HTTPClient.swift
+//  HTTPClientInterface.swift
 //  DummyApp
 //
 //  Created by Russell Yeo on 13/05/2023.
@@ -8,13 +8,7 @@
 import Combine
 import Foundation
 
-/// A  HTTP client to handle making network requests and parsing the response
-protocol HTTPClient {
-    /// Fetch and decode a HTTP resource to a given type
-    func fetch<Output: Decodable>(resource: HTTPResource) -> AnyPublisher<Output, Error>
-}
-
-final class HTTPClientImpl: HTTPClient {
+final class HTTPClientLive: HTTPClient {
     private let baseURL: URL
     private let session: URLSession
     private let decoder: JSONDecoder
@@ -34,7 +28,8 @@ final class HTTPClientImpl: HTTPClient {
             .appending(path: resource.path)
             .appending(queryItems: resource.queryItems)
         
-        return session.dataTaskPublisher(for: url)
+        return session
+            .dataTaskPublisher(for: url)
             .tryMap { (data, response) -> Data in
                 guard
                     let httpResponse = response as? HTTPURLResponse,
@@ -48,4 +43,3 @@ final class HTTPClientImpl: HTTPClient {
             .eraseToAnyPublisher()
     }
 }
-

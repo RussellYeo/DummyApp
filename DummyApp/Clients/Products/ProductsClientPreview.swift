@@ -1,5 +1,5 @@
 //
-//  ProductsProviderPreviewSupport.swift
+//  ProductsClientPreview.swift
 //  DummyApp
 //
 //  Created by Russell Yeo on 14/05/2023.
@@ -8,8 +8,8 @@
 import Combine
 import Foundation
 
-final class ProductsProviderPreviewSupport: ProductsProvider {
-    func getProducts(skip: Int?, limit: Int?) -> AnyPublisher<ProductsPage, Error> {
+extension ProductsClient {
+    static var preview: Self {
         let page = ProductsPage(
             products: [
                 .iPhone9,
@@ -20,9 +20,13 @@ final class ProductsProviderPreviewSupport: ProductsProvider {
             skip: 0,
             limit: 3
         )
-        return Just(page)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
+        return Self(
+            getProducts: { (_, _) in
+                Just(page)
+                    .setFailureType(to: Error.self)
+                    .eraseToAnyPublisher()
+            }
+        )
     }
 }
 

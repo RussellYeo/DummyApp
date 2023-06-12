@@ -11,8 +11,8 @@ struct ProductDetailsView: View {
     @StateObject var viewModel: ProductDetailsViewModel
     @State var navigationTitle: String = ""
     
-    init(product: Product, cartProvider: CartProvider) {
-        let viewModel = ProductDetailsViewModel(product: product, cartProvider: cartProvider)
+    init(product: Product) {
+        let viewModel = ProductDetailsViewModel(product: product)
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
@@ -44,9 +44,6 @@ struct ProductDetailsView: View {
 
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailsView(
-            product: ProductDTO.iPhoneX.model,
-            cartProvider: CartProviderPreviewSupport()
-        )
+        ProductDetailsView(product: ProductDTO.iPhoneX.model)
     }
 }

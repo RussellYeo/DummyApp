@@ -6,42 +6,47 @@
 //
 
 import Combine
+import Dependencies
 @testable import DummyApp
 import XCTest
 
 class CartViewModelTests: XCTestCase {
     
-    var cartProvider: CartProviderMock!
-    var viewModel: CartViewModel!
     var cancellables: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
-        cartProvider = CartProviderMock()
-        viewModel = CartViewModel(cartProvider: cartProvider)
         cancellables = Set<AnyCancellable>()
     }
     
     override func tearDown() {
-        cartProvider = nil
-        viewModel = nil
-        cancellables = nil
+        cancellables.removeAll()
         super.tearDown()
     }
     
     func testReload() {
         // GIVEN a Cart with two products
-        let cart = Cart(
-            products: [
-                CartProduct(product: ProductDTO.iPhoneX.model, quantity: 2),
-                CartProduct(product: ProductDTO.iPhone9.model, quantity: 1)
-            ],
-            totalPrice: 2347,
-            totalProducts: 2,
-            totalQuantity: 3
-        )
-        cartProvider.cartPublisher = Just(cart).eraseToAnyPublisher()
+        let viewModel = withDependencies {
+            $0.cartClient.cart = {
+                let cart = Cart(
+                    products: [
+                        CartProduct(product: ProductDTO.iPhoneX.model, quantity: 2),
+                        CartProduct(product: ProductDTO.iPhone9.model, quantity: 1)
+                    ],
+                    totalPrice: 2347,
+                    totalProducts: 2,
+                    totalQuantity: 3
+                )
+                return Just(cart)
+                    .setFailureType(to: Never.self)
+                    .eraseToAnyPublisher()
+            }
+            $0.numberFormatter = .USD
+        } operation: {
+            CartViewModel()
+        }
         
+        // AND the price will be updated
         let expectation = XCTestExpectation(description: "Total price was updated")
         viewModel.$totalPrice
             .dropFirst()

@@ -5,15 +5,16 @@
 //  Created by Russell Yeo on 14/05/2023.
 //
 
+import Dependencies
 import Foundation
 
 final class ProductDetailsViewModel: ObservableObject {
-    private let product: Product
-    private let cartProvider: CartProvider
+    @Dependency(\.cartClient) var cartClient
     
-    init(product: Product, cartProvider: CartProvider) {
+    private let product: Product
+    
+    init(product: Product) {
         self.product = product
-        self.cartProvider = cartProvider
     }
     
     var navigationTitle: String {
@@ -29,6 +30,6 @@ final class ProductDetailsViewModel: ObservableObject {
     }
     
     func didTapAddToCart() {
-        cartProvider.addToCart(product)
+        cartClient.addToCart(product)
     }
 }

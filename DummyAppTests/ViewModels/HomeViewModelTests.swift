@@ -6,41 +6,43 @@
 //
 
 import Combine
+import Dependencies
 @testable import DummyApp
 import XCTest
 
 class HomeViewModelTests: XCTestCase {
 
-    var productsProvider: ProductsProviderMock!
-    var viewModel: HomeViewModel!
     var cancellables: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
-        productsProvider = ProductsProviderMock()
-        viewModel = HomeViewModel(productsProvider: productsProvider)
         cancellables = Set<AnyCancellable>()
     }
     
     override func tearDown() {
-        productsProvider = nil
-        viewModel = nil
-        cancellables = nil
+        cancellables.removeAll()
         super.tearDown()
     }
     
     func testFetchFirstPage() {
-        // GIVEN some products will be returned by the provider
-        let products = [
-            ProductDTO.iPhoneX,
-            ProductDTO.iPhone9,
-            ProductDTO.samsungUniverse
-        ]
-        let page = ProductsPage(products: products, total: 10, skip: 0, limit: 3)
-        productsProvider.getProductsReturnValue = Just(page)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
+        // GIVEN some products will be returned by the products client
+        let viewModel = withDependencies {
+            $0.productsClient.getProducts = { (_, _) in
+                let products = [
+                    ProductDTO.iPhoneX,
+                    ProductDTO.iPhone9,
+                    ProductDTO.samsungUniverse
+                ]
+                let page = ProductsPage(products: products, total: 10, skip: 0, limit: 3)
+                return Just(page)
+                    .setFailureType(to: Error.self)
+                    .eraseToAnyPublisher()
+            }
+        } operation: {
+            HomeViewModel()
+        }
         
+        // AND the products will be updated
         let expectation = XCTestExpectation(description: "Products were updated")
         viewModel.$products
             .dropFirst()

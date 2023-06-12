@@ -8,14 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    private let cartProvider: CartProvider
-    
-    @StateObject var viewModel: HomeViewModel
-    
-    init(cartProvider: CartProvider, productsProvider: ProductsProvider) {
-        self.cartProvider = cartProvider
-        self._viewModel = StateObject(wrappedValue: HomeViewModel(productsProvider: productsProvider))
-    }
+    @StateObject var viewModel: HomeViewModel = .init()
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -52,10 +45,7 @@ struct HomeView: View {
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(viewModel.products) { product in
                                 NavigationLink(
-                                    destination: ProductDetailsView(
-                                        product: product,
-                                        cartProvider: cartProvider
-                                    )
+                                    destination: ProductDetailsView(product: product)
                                 ) {
                                     ProductCell(product: product)
                                         .frame(width: cellWidth, height: cellWidth)
@@ -81,9 +71,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(
-            cartProvider: CartProviderPreviewSupport(),
-            productsProvider: ProductsProviderPreviewSupport()
-        )
+        HomeView()
     }
 }

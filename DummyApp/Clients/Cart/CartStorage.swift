@@ -5,9 +5,11 @@
 //  Created by Russell Yeo on 15/05/2023.
 //
 
+import Combine
+import Dependencies
 import Foundation
 
-final class CartStorage {
+final class CartStorage: ObservableObject {
     var products: [Product: UInt] = [:]
     var totalPrice: Decimal = 0.0
     var totalProducts: UInt = 0
@@ -35,5 +37,16 @@ final class CartStorage {
         totalPrice += product.price
         totalQuantity += 1
         return true
+    }
+}
+
+private enum CartStorageKey: DependencyKey {
+    static let liveValue = CartStorage()
+}
+
+extension DependencyValues {
+    var cartStorage: CartStorage {
+        get { self[CartStorageKey.self] }
+        set { self[CartStorageKey.self] = newValue }
     }
 }

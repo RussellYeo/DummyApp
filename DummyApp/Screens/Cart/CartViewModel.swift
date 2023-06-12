@@ -6,11 +6,12 @@
 //
 
 import Combine
+import Dependencies
 import Foundation
 
 final class CartViewModel: ObservableObject {
-    private let cartProvider: CartProvider
-    private lazy var currencyFormatter = createCurrencyFormatter()
+    @Dependency(\.cartClient) var cartClient
+    @Dependency(\.numberFormatter) var numberFormatter
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -25,15 +26,14 @@ final class CartViewModel: ObservableObject {
     @Published var totalQuantity: UInt?
     @Published var totalProducts: UInt?
     
-    init(cartProvider: CartProvider) {
-        self.cartProvider = cartProvider
-        self.currencyFormatter = currencyFormatter
+    init() {
+        self.numberFormatter.setNumberStyle(.currency)
         self.subscribeToProductsUpdates()
     }
     
     func reload() {
-        cartProvider
-            .cartPublisher
+        cartClient
+            .cart()
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] value in
@@ -51,7 +51,7 @@ final class CartViewModel: ObservableObject {
                     self.products = cart.products
                     
                     let totalPriceNumber = NSDecimalNumber(decimal: cart.totalPrice)
-                    self.totalPrice = self.currencyFormatter.string(from: totalPriceNumber)                    
+                    self.totalPrice = self.numberFormatter.string(totalPriceNumber)
                     
                     self.totalQuantity = cart.totalQuantity
                 }
@@ -64,18 +64,13 @@ final class CartViewModel: ObservableObject {
             .sink { [weak self] products in
                 guard let self else { return }
                 products.forEach { cartProduct in
-                    self.cartProvider.updateQuantity(
-                        product: cartProduct.product,
-                        quantity: cartProduct.quantity
+                    _ = self.cartClient.updateQuantity(
+                        cartProduct.product,
+                        cartProduct.quantity
                     )
                 }
             }
             .store(in: &cancellables)
     }
-        
-    private func createCurrencyFormatter() -> NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        return formatter
-    }
+
 }

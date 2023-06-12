@@ -9,15 +9,12 @@ import SwiftUI
 
 @main
 struct DummyApp: App {
-    private let cartProvider = CartProviderImpl()
-    private let productsProvider = ProductsProviderImpl()
+    let storage: CartStorage = .init()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(
-                cartProvider: cartProvider,
-                productsProvider: productsProvider
-            )
+            ContentView()
+                .environmentObject(storage)
         }
     }
 }
