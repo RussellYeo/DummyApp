@@ -8,7 +8,7 @@
 import Dependencies
 
 private enum ProductsClientKey: DependencyKey {
-    static let liveValue = ProductsClient.live
+    static let liveValue = ProductsClient.preview
     static let previewValue = ProductsClient.preview
 }
 

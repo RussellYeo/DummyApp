@@ -22,8 +22,11 @@ final class CartStorage: ObservableObject {
             products[product] = 1
             totalProducts += 1
         }
-        totalPrice += product.price
-        totalQuantity += 1
+        recalculateTotals()
+    }
+    
+    func getQuantity(product: Product) -> UInt? {
+        products[product]
     }
     
     func update(product: Product, quantity: UInt) -> Bool {
@@ -34,9 +37,22 @@ final class CartStorage: ObservableObject {
             return false
         }
         products[product] = quantity
-        totalPrice += product.price
-        totalQuantity += 1
+        recalculateTotals()
         return true
+    }
+    
+    private func recalculateTotals() {
+        totalPrice = products.reduce(0, { (total, item) in
+            let (product, quantity) = item
+            return total + (product.price * Decimal(quantity))
+        })
+        
+        totalProducts = UInt(products.keys.count)
+        
+        totalQuantity = products.reduce(0, { (total, item) in
+            let (_, quantity) = item
+            return total + quantity
+        })
     }
 }
 

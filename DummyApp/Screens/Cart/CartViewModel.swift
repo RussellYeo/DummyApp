@@ -15,12 +15,7 @@ final class CartViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    private var productsSubject = CurrentValueSubject<[CartProduct], Never>([])
-    var products: [CartProduct] {
-        get { productsSubject.value }
-        set { productsSubject.send(newValue) }
-    }
-     
+    @Published var items: [CartItem] = []
     @Published var isEmptyState: Bool = true
     @Published var totalPrice: String?
     @Published var totalQuantity: UInt?
@@ -28,49 +23,49 @@ final class CartViewModel: ObservableObject {
     
     init() {
         self.numberFormatter.setNumberStyle(.currency)
-        self.subscribeToProductsUpdates()
+        self.updateStorage()
+        self.updateUI()
     }
     
-    func reload() {
+    func updateStorage() {
+        $items
+            .sink(receiveValue: { [weak self] items in
+                guard let self else { return }
+                for item in items {
+                    guard item.quantity != self.cartClient.getQuantity(item.product) else {
+                        return
+                    }
+                    _ = self.cartClient.updateQuantity(item.product, item.quantity)
+                }
+            })
+            .store(in: &cancellables)
+    }
+    
+    func updateUI() {
         cartClient
-            .cart()
-            .receive(on: DispatchQueue.main)
+            .cartPublisher
             .sink(
                 receiveCompletion: { [weak self] value in
                     guard let self else { return }
                     switch value {
                     case .failure:
-                        self.products = []
+                        self.items = []
                     case .finished:
                         break
                     }
                   },
                 receiveValue: { [weak self] cart in
                     guard let self else { return }
-                    self.isEmptyState = cart.products.isEmpty
-                    self.products = cart.products
+                    self.isEmptyState = cart.items.isEmpty
+                    self.items = cart.items
                     
                     let totalPriceNumber = NSDecimalNumber(decimal: cart.totalPrice)
                     self.totalPrice = self.numberFormatter.string(totalPriceNumber)
-                    
                     self.totalQuantity = cart.totalQuantity
+                    self.totalProducts = cart.totalProducts
                 }
             )
             .store(in: &cancellables)
     }
     
-    private func subscribeToProductsUpdates() {
-        productsSubject
-            .sink { [weak self] products in
-                guard let self else { return }
-                products.forEach { cartProduct in
-                    _ = self.cartClient.updateQuantity(
-                        cartProduct.product,
-                        cartProduct.quantity
-                    )
-                }
-            }
-            .store(in: &cancellables)
-    }
-
 }

@@ -10,24 +10,23 @@ import Foundation
 
 extension CartClient {
     static var preview: Self {
-        let products: [CartProduct] = [
-            CartProduct(product: ProductDTO.iPhoneX.model, quantity: 2),
-            CartProduct(product: ProductDTO.samsungUniverse.model, quantity: 1)
+        let items: [CartItem] = [
+            CartItem(product: ProductDTO.iPhoneX.model, quantity: 2),
+            CartItem(product: ProductDTO.samsungUniverse.model, quantity: 1)
         ]
-        let _cart = Cart(
-            products: products,
-            totalPrice: products.map(\.product).map(\.price).reduce(0, +),
-            totalProducts: UInt(products.count),
-            totalQuantity: products.map(\.quantity).reduce(0, +)
+        let cart = Cart(
+            items: items,
+            totalPrice: items.map(\.product).map(\.price).reduce(0, +),
+            totalProducts: UInt(items.count),
+            totalQuantity: items.map(\.quantity).reduce(0, +)
         )
+        let cartPublisher = Just(cart)
+            .setFailureType(to: Never.self)
+            .eraseToAnyPublisher()
         return Self(
-            cart: {
-                Just(_cart)
-                    .setFailureType(to: Never.self)
-                    .eraseToAnyPublisher()
-                
-            },
+            cartPublisher: cartPublisher,
             addToCart: { (_) in },
+            getQuantity: { (_) in nil },
             updateQuantity: { (_,_) in true }
         )
     }

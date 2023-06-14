@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 struct Cart {
-    let products: [CartProduct]
+    let items: [CartItem]
     let totalPrice: Decimal
     let totalProducts: UInt
     let totalQuantity: UInt

@@ -1,5 +1,5 @@
 //
-//  CartProduct.swift
+//  CartItem.swift
 //  DummyApp
 //
 //  Created by Russell Yeo on 14/05/2023.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct CartProduct {
-    let product: Product
+struct CartItem: Equatable {
+    var product: Product
     var quantity: UInt
 }
 
-extension CartProduct: Identifiable {
+extension CartItem: Identifiable {
     var id: Int {
         return product.id
     }

@@ -23,8 +23,8 @@ struct CartView: View {
                 } else {
                     List {
                         Section {
-                            ForEach(viewModel.products.indices, id: \.self) { index in
-                                CartCell(cartProduct: self.$viewModel.products[index])
+                            ForEach($viewModel.items) { item in
+                                CartCell(viewModel: .init(product: item.product, quantity: item.quantity))
                             }
                         }
                         Section {
@@ -42,7 +42,6 @@ struct CartView: View {
                 }
             }
             .navigationTitle("Cart")
-            .onAppear(perform: viewModel.reload)
         }
     }
 }

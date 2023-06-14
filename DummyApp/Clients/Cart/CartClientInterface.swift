@@ -10,9 +10,11 @@ import Foundation
 
 struct CartClient {
     /// Emits updates to the cart
-    var cart: () -> AnyPublisher<Cart, Never>
+    var cartPublisher: AnyPublisher<Cart, Never>
     /// Add a product to the cart
-    var addToCart: (Product) -> ()
+    var addToCart: (_ product: Product) -> ()
+    /// Get the quantity of a product in the cart. Returns nil if the item does not exist in the cart.
+    var getQuantity: (_ product: Product) -> UInt?
     /// Update the quantity of a product in the cart
-    var updateQuantity: (Product, UInt) -> Bool
+    var updateQuantity: (_ product: Product, _ quantity: UInt) -> Bool
 }
