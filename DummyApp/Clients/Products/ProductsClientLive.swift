@@ -5,6 +5,7 @@
 //  Created by Russell Yeo on 12/06/2023.
 //
 
+import Combine
 import Dependencies
 
 extension ProductsClient {
@@ -13,7 +14,7 @@ extension ProductsClient {
         
         return Self(
             getProducts: { (skip, limit) in
-                httpClient.fetch(
+                let dtoPublisher: AnyPublisher<ProductsPageDTO, Error> = httpClient.fetch(
                     resource: .init(
                         path: "products",
                         queryItems: [
@@ -23,6 +24,10 @@ extension ProductsClient {
                         .compactMap { $0 }
                     )
                 )
+                return dtoPublisher.map { dto in
+                    return dto.model
+                }
+                .eraseToAnyPublisher()
             }
         )
     }

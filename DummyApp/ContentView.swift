@@ -5,6 +5,7 @@
 //  Created by Russell Yeo on 13/05/2023.
 //
 
+import Dependencies
 import SwiftUI
 
 struct ContentView: View {
@@ -25,10 +26,13 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    private static var storage: CartStorage = .init()
-    
     static var previews: some View {
-        ContentView()
-            .environmentObject(storage)
+        withDependencies {
+            $0.cartClient = .preview
+            $0.productsClient = .preview
+            $0.numberFormatter = .USD
+        } operation: {
+            ContentView()
+        }
     }
 }

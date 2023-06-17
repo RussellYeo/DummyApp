@@ -26,11 +26,10 @@ final class HomeViewModel: ObservableObject {
         productsClient
             .getProducts(products.count, 30)
             .receive(on: DispatchQueue.main)
-            .map { page in page.products.map(\.model) }
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { products in
-                    self.products += products
+                receiveValue: { [weak self] page in
+                    self?.products += page.products
                 }
             )
             .store(in: &cancellables)

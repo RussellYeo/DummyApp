@@ -46,7 +46,7 @@ extension EmptyStateViewModel {
         )
     }
     
-    static var emptyItems: EmptyStateViewModel {
+    static var internetNotAvailable: EmptyStateViewModel {
         EmptyStateViewModel(
             icon: "wifi.slash",
             title: "Nothing to display",
@@ -61,8 +61,8 @@ struct EmptyStateView_Previews: PreviewProvider {
             EmptyStateView(model: .emptyCart)
                 .previewDisplayName("Empty Cart")
             
-            EmptyStateView(model: .emptyItems)
-                .previewDisplayName("Empty Items")
+            EmptyStateView(model: .internetNotAvailable)
+                .previewDisplayName("Internet Not Available")
         }
     }
 }

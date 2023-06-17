@@ -21,7 +21,7 @@ final class ProductDetailsViewModel: ObservableObject {
         product.title
     }
     
-    var imageURLs: [URL] {
+    var images: [ImageSource] {
         product.images
     }
     

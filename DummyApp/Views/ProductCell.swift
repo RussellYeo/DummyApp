@@ -11,24 +11,14 @@ struct ProductCell: View {
     let product: Product
     
     var body: some View {
-        AsyncImage(url: product.thumbnail) { phase in
-            switch phase {
-            case .empty:
-                ZStack {
-                    ProgressView()
-                    Color.gray.opacity(0.5)
-                }
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFill()
-            case .failure:
-                Color.gray
-                    .opacity(0.5)
-            @unknown default:
-                Color.gray
-                    .opacity(0.5)
-            }
-        }
+        ProductImage(imageSource: product.thumbnail)
     }
 }
+
+struct ProductCell_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductCell(product: .iPhone9)
+            .frame(width: 50, height: 50)
+    }
+}
+

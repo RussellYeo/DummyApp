@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Dependencies
 import SwiftUI
 
 struct CartView: View {
@@ -49,6 +50,10 @@ struct CartView: View {
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView()
+        withDependencies {
+            $0.cartClient = .preview
+        } operation: {
+            CartView()
+        }
     }
 }

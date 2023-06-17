@@ -17,6 +17,6 @@ struct Product: Identifiable, Hashable {
     let stock: UInt
     let brand: String
     let category: String
-    let thumbnail: URL
-    let images: Array<URL>
+    let thumbnail: ImageSource
+    let images: Array<ImageSource>
 }

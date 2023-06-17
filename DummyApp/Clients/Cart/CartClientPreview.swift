@@ -11,8 +11,8 @@ import Foundation
 extension CartClient {
     static var preview: Self {
         let items: [CartItem] = [
-            CartItem(product: ProductDTO.iPhoneX.model, quantity: 2),
-            CartItem(product: ProductDTO.samsungUniverse.model, quantity: 1)
+            CartItem(product: Product.iPhoneX, quantity: 2),
+            CartItem(product: Product.samsungUniverse, quantity: 1)
         ]
         let cart = Cart(
             items: items,

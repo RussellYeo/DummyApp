@@ -12,7 +12,7 @@ struct CartCell: View {
     
     var body: some View {
         HStack {
-            ProductImage(url: viewModel.product.thumbnail)
+            ProductImage(imageSource: viewModel.product.thumbnail)
                 .frame(width: 50, height: 50)
                 .clipped()
                 .cornerRadius(4)
@@ -35,9 +35,9 @@ struct CartCell: View {
 struct CartCell_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            CartCell(viewModel: .init(product: .constant(ProductDTO.iPhoneX.model), quantity: .constant(2)))
-            CartCell(viewModel: .init(product: .constant(ProductDTO.samsungUniverse.model), quantity: .constant(1)))
-            CartCell(viewModel: .init(product: .constant(ProductDTO.iPhone9.model), quantity: .constant(1)))
+            CartCell(viewModel: .init(product: .constant(Product.iPhoneX), quantity: .constant(2)))
+            CartCell(viewModel: .init(product: .constant(Product.samsungUniverse), quantity: .constant(1)))
+            CartCell(viewModel: .init(product: .constant(Product.iPhone9), quantity: .constant(1)))
         }
     }
 }

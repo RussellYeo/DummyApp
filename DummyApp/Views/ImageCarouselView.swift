@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct ImageCarouselView: View {
-    let imageURLs: [URL]
-    
-    @State private var currentPage = 0
+    let images: [ImageSource]
+    @State private var currentPage: Int = 0
     
     var body: some View {
         VStack {
             TabView(selection: $currentPage) {
-                ForEach(0..<imageURLs.count) { index in
-                    ProductImage(url: imageURLs[index])
+                ForEach(images, id: \.self) { imageSource in
+                    ProductImage(imageSource: imageSource)
                 }
             }
             .tabViewStyle(PageTabViewStyle())
@@ -28,10 +27,11 @@ struct ImageCarouselView: View {
 struct ImageCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         ImageCarouselView(
-            imageURLs: [
-                URL(string: "https://i.dummyjson.com/data/products/2/1.jpg")!,
-                URL(string: "https://i.dummyjson.com/data/products/2/2.jpg")!,
-                URL(string: "https://i.dummyjson.com/data/products/2/3.jpg")!
+            images: [
+                .preview(._1),
+                .preview(._2),
+                .preview(._3),
+                .preview(._4)
             ]
         )
         .frame(width: 300, height: 300)

@@ -20,7 +20,7 @@ struct ProductDetailsView: View {
         GeometryReader { geometry in
             ScrollView {
                 VStack {
-                    ImageCarouselView(imageURLs: viewModel.imageURLs)
+                    ImageCarouselView(images: viewModel.images)
                         .frame(width: geometry.size.width, height: geometry.size.width)
                         .aspectRatio(contentMode: .fit)
                     
@@ -44,6 +44,6 @@ struct ProductDetailsView: View {
 
 struct ProductDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetailsView(product: ProductDTO.iPhoneX.model)
+        ProductDetailsView(product: .iPhoneX)
     }
 }

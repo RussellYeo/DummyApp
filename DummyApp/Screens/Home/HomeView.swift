@@ -5,6 +5,7 @@
 //  Created by Russell Yeo on 13/05/2023.
 //
 
+import Dependencies
 import SwiftUI
 
 struct HomeView: View {
@@ -34,7 +35,7 @@ struct HomeView: View {
             if viewModel.error != nil {
                 VStack {
                     Spacer()
-                    EmptyStateView(model: .emptyItems)
+                    EmptyStateView(model: .internetNotAvailable)
                     Spacer()
                 }
             } else {
@@ -71,6 +72,10 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        withDependencies {
+            $0.productsClient = .preview
+        } operation: {
+            HomeView()
+        }
     }
 }

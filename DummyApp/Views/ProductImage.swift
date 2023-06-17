@@ -8,24 +8,31 @@
 import SwiftUI
 
 struct ProductImage: View {
-    let url: URL
+    let imageSource: ImageSource
     
     var body: some View {
-        AsyncImage(url: url) { phase in
-            switch phase {
-            case .empty:
-                ZStack {
-                    ProgressView()
+        switch imageSource {
+        case .preview(let resource):
+            Image(resource)
+                .resizable()
+                .scaledToFill()
+        case .url(let url):
+            AsyncImage(url: url) { phase in
+                switch phase {
+                case .empty:
+                    ZStack {
+                        ProgressView()
+                        Color.gray.opacity(0.5)
+                    }
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFill()
+                case .failure:
+                    Color.gray.opacity(0.5)
+                @unknown default:
                     Color.gray.opacity(0.5)
                 }
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFill()
-            case .failure:
-                Color.gray.opacity(0.5)
-            @unknown default:
-                Color.gray.opacity(0.5)
             }
         }
     }

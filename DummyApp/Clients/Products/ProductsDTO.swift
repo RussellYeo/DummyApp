@@ -35,8 +35,8 @@ extension ProductDTO {
             stock: self.stock,
             brand: self.brand,
             category: self.category,
-            thumbnail: self.thumbnail,
-            images: self.images
+            thumbnail: .url(self.thumbnail),
+            images: self.images.map { .url($0) }
         )
     }
 }
