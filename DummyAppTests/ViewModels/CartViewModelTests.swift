@@ -8,6 +8,7 @@
 import Combine
 import Dependencies
 @testable import DummyApp
+import DummyAPI
 import XCTest
 
 final class CartViewModelTests: XCTestCase {
@@ -28,8 +29,8 @@ final class CartViewModelTests: XCTestCase {
         // GIVEN a Cart with two products
         let cart = Cart(
             items: [
-                CartItem(product: ProductDTO.iPhoneX.model, quantity: 2),
-                CartItem(product: ProductDTO.iPhone9.model, quantity: 1)
+                CartItem(product: .iPhoneX, quantity: 2),
+                CartItem(product: .iPhone9, quantity: 1)
             ],
             totalPrice: 2347,
             totalProducts: 2,

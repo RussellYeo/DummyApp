@@ -1,11 +1,12 @@
 //
 //  ProductFactory.swift
-//  DummyApp
+//  DummyAPITests
 //
-//  Created by Russell Yeo on 17/06/2023.
+//  Created by Russell Yeo on 21/06/2023.
 //
 
 import DummyAPI
+import Foundation
 
 extension Product {
     static var iPhone9: Product {
@@ -19,12 +20,12 @@ extension Product {
             stock: 94,
             brand: "Apple",
             category: "smartphones",
-            thumbnail: .preview(._1),
+            thumbnail: .url(URL(string: "https://i.dummyjson.com/data/products/1/thumbnail.jpg")!),
             images: [
-                .preview(._1),
-                .preview(._2),
-                .preview(._3),
-                .preview(._4)
+                .url(URL(string: "https://i.dummyjson.com/data/products/1/1.jpg")!),
+                .url(URL(string: "https://i.dummyjson.com/data/products/1/2.jpg")!),
+                .url(URL(string: "https://i.dummyjson.com/data/products/1/3.jpg")!),
+                .url(URL(string: "https://i.dummyjson.com/data/products/1/4.jpg")!)
             ]
         )
     }
@@ -40,12 +41,10 @@ extension Product {
             stock: 34,
             brand: "Apple",
             category: "smartphones",
-            thumbnail: .preview(._2),
+            thumbnail: .url(URL(string: "https://i.dummyjson.com/data/products/2/thumbnail.jpg")!),
             images: [
-                .preview(._2),
-                .preview(._3),
-                .preview(._4),
-                .preview(._1)
+                .url(URL(string: "https://i.dummyjson.com/data/products/2/1.jpg")!),
+                .url(URL(string: "https://i.dummyjson.com/data/products/2/2.jpg")!)
             ]
         )
     }
@@ -61,12 +60,11 @@ extension Product {
             stock: 36,
             brand: "Samsung",
             category: "smartphones",
-            thumbnail: .preview(._3),
+            thumbnail: .url(URL(string: "https://i.dummyjson.com/data/products/3/thumbnail.jpg")!),
             images: [
-                .preview(._3),
-                .preview(._4),
-                .preview(._1),
-                .preview(._2)
+                .url(URL(string: "https://i.dummyjson.com/data/products/3/1.jpg")!),
+                .url(URL(string: "https://i.dummyjson.com/data/products/3/2.jpg")!),
+                .url(URL(string: "https://i.dummyjson.com/data/products/3/3.jpg")!)
             ]
         )
     }

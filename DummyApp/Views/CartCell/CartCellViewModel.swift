@@ -5,6 +5,7 @@
 //  Created by Russell Yeo on 15/06/2023.
 //
 
+import DummyAPI
 import SwiftUI
 
 final class CartCellViewModel: ObservableObject {

@@ -6,6 +6,7 @@
 //
 
 import Dependencies
+import DummyAPI
 import Foundation
 
 final class ProductDetailsViewModel: ObservableObject {

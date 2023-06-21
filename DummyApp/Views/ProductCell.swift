@@ -5,6 +5,7 @@
 //  Created by Russell Yeo on 13/05/2023.
 //
 
+import DummyAPI
 import SwiftUI
 
 struct ProductCell: View {
