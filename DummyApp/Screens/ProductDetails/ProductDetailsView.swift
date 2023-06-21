@@ -21,7 +21,7 @@ struct ProductDetailsView: View {
         GeometryReader { geometry in
             ScrollView {
                 VStack {
-                    ImageCarouselView(images: viewModel.images)
+                    ImageCarousel(images: viewModel.images)
                         .frame(width: geometry.size.width, height: geometry.size.width)
                         .aspectRatio(contentMode: .fit)
                     
