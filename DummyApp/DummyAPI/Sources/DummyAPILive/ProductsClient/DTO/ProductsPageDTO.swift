@@ -1,9 +1,11 @@
 //
 //  ProductsPage.swift
-//  DummyApp
+//  DummyAPILive
 //
 //  Created by Russell Yeo on 13/05/2023.
 //
+
+import DummyAPI
 
 /// A page of products returned from the server
 struct ProductsPageDTO: Decodable, Equatable {

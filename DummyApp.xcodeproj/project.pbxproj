@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46073D322A439531006D2C81 /* DummyAPILive in Frameworks */ = {isa = PBXBuildFile; productRef = 46073D312A439531006D2C81 /* DummyAPILive */; };
 		46636B112A0F92D000624D9C /* DummyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B102A0F92D000624D9C /* DummyApp.swift */; };
 		46636B132A0F92D000624D9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B122A0F92D000624D9C /* ContentView.swift */; };
 		46636B152A0F92D100624D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46636B142A0F92D100624D9C /* Assets.xcassets */; };
@@ -27,7 +28,7 @@
 		46636B9E2A125E0300624D9C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B9D2A125E0300624D9C /* HomeViewModelTests.swift */; };
 		46793AD52A3B541F001583C8 /* CartCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46793AD42A3B541F001583C8 /* CartCellViewModel.swift */; };
 		4679447F2A42D9FE00A36EA4 /* DummyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 4679447E2A42D9FE00A36EA4 /* DummyAPI */; };
-		467944812A42DA3300A36EA4 /* DummyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467944802A42DA3300A36EA4 /* DummyAPI.swift */; };
+		467944812A42DA3300A36EA4 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467944802A42DA3300A36EA4 /* Dependencies.swift */; };
 		467944832A42DD3B00A36EA4 /* ProductsClientPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467944822A42DD3B00A36EA4 /* ProductsClientPreview.swift */; };
 		467944852A42DEF900A36EA4 /* CartClientPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467944842A42DEF900A36EA4 /* CartClientPreview.swift */; };
 		46EE77F02A3DE5570076AFA3 /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EE77EF2A3DE5570076AFA3 /* ProductFactory.swift */; };
@@ -68,7 +69,7 @@
 		46636B9D2A125E0300624D9C /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		46793AD42A3B541F001583C8 /* CartCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellViewModel.swift; sourceTree = "<group>"; };
 		4679447C2A42D43700A36EA4 /* DummyAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DummyAPI; path = DummyApp/DummyAPI; sourceTree = "<group>"; };
-		467944802A42DA3300A36EA4 /* DummyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAPI.swift; sourceTree = "<group>"; };
+		467944802A42DA3300A36EA4 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		467944822A42DD3B00A36EA4 /* ProductsClientPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsClientPreview.swift; sourceTree = "<group>"; };
 		467944842A42DEF900A36EA4 /* CartClientPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartClientPreview.swift; sourceTree = "<group>"; };
 		46EE77EF2A3DE5570076AFA3 /* ProductFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46073D322A439531006D2C81 /* DummyAPILive in Frameworks */,
 				4679447F2A42D9FE00A36EA4 /* DummyAPI in Frameworks */,
 				46F9AA812A3780160051F2E8 /* Dependencies in Frameworks */,
 			);
@@ -122,6 +124,7 @@
 				46636B552A0FBAE500624D9C /* Screens */,
 				46636B3D2A0FAC9100624D9C /* Clients */,
 				46636B102A0F92D000624D9C /* DummyApp.swift */,
+				467944802A42DA3300A36EA4 /* Dependencies.swift */,
 				46636B122A0F92D000624D9C /* ContentView.swift */,
 				46636B142A0F92D100624D9C /* Assets.xcassets */,
 				46636B162A0F92D100624D9C /* Preview Content */,
@@ -152,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				46F9AA8A2A3791E60051F2E8 /* NumberFormatter */,
-				467944802A42DA3300A36EA4 /* DummyAPI.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -259,6 +261,7 @@
 			packageProductDependencies = (
 				46F9AA802A3780160051F2E8 /* Dependencies */,
 				4679447E2A42D9FE00A36EA4 /* DummyAPI */,
+				46073D312A439531006D2C81 /* DummyAPILive */,
 			);
 			productName = DummyApp;
 			productReference = 46636B0D2A0F92D000624D9C /* DummyApp.app */;
@@ -361,7 +364,7 @@
 				46F9AA8C2A3791F70051F2E8 /* NumberFormatterClient.swift in Sources */,
 				46636B862A1138A900624D9C /* ImageCarousel.swift in Sources */,
 				46636B722A10CE7A00624D9C /* EmptyState.swift in Sources */,
-				467944812A42DA3300A36EA4 /* DummyAPI.swift in Sources */,
+				467944812A42DA3300A36EA4 /* Dependencies.swift in Sources */,
 				46636B572A0FBAF100624D9C /* HomeView.swift in Sources */,
 				46636B802A10E8AC00624D9C /* CartCell.swift in Sources */,
 				46EE77F02A3DE5570076AFA3 /* ProductFactory.swift in Sources */,
@@ -644,6 +647,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		46073D312A439531006D2C81 /* DummyAPILive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DummyAPILive;
+		};
 		4679447E2A42D9FE00A36EA4 /* DummyAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DummyAPI;

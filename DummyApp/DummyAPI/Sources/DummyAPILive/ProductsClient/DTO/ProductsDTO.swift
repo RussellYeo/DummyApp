@@ -1,10 +1,11 @@
 //
 //  ProductsDTO.swift
-//  DummyApp
+//  DummyAPILive
 //
 //  Created by Russell Yeo on 13/05/2023.
 //
 
+import DummyAPI
 import Foundation
 
 /// A DTO to represent a product as returned from the server

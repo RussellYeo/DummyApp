@@ -5,7 +5,8 @@
 //  Created by Russell Yeo on 13/05/2023.
 //
 
-@testable import DummyAPI
+import DummyAPI
+@testable import DummyAPILive
 import XCTest
 
 final class CartStorageTests: XCTestCase {

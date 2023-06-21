@@ -1,11 +1,12 @@
 //
 //  ProductsClientLive.swift
-//  DummyApp
+//  DummyAPILive
 //
 //  Created by Russell Yeo on 12/06/2023.
 //
 
 import Combine
+import DummyAPI
 
 extension ProductsClient {
     public static var live: Self {

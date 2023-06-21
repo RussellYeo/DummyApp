@@ -10,13 +10,24 @@ let package = Package(
             name: "DummyAPI",
             targets: ["DummyAPI"]
         ),
+        .library(
+            name: "DummyAPILive",
+            targets: ["DummyAPILive"]
+        ),
+    ],
+    dependencies: [
     ],
     targets: [
         .target(
-            name: "DummyAPI"),
-        .testTarget(
-            name: "DummyAPITests",
+            name: "DummyAPI"
+        ),
+        .target(
+            name: "DummyAPILive",
             dependencies: ["DummyAPI"]
+        ),
+        .testTarget(
+            name: "DummyAPILiveTests",
+            dependencies: ["DummyAPILive"]
         ),
     ]
 )

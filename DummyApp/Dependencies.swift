@@ -1,12 +1,14 @@
 //
-//  DummyAPI.swift
+//  Dependencies.swift
 //  DummyApp
 //
 //  Created by Russell Yeo on 21/06/2023.
 //
+//  Load dependencies into the dependency manager
 
 import Dependencies
 import DummyAPI
+import DummyAPILive
 
 // MARK: - ProductsClient
 
