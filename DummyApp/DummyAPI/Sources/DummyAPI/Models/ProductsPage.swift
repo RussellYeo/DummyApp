@@ -1,11 +1,4 @@
-//
-//  ProductsPage.swift
-//  DummyAPI
-//
-//  Created by Russell Yeo on 21/06/2023.
-//
-
-import Foundation
+import SharedModels
 
 /// A page of products returned from the server
 public struct ProductsPage {

@@ -1,11 +1,5 @@
-//
-//  CartItem.swift
-//  DummyAPI
-//
-//  Created by Russell Yeo on 14/05/2023.
-//
-
 import Foundation
+import SharedModels
 
 public struct CartItem: Equatable {
     public var product: Product

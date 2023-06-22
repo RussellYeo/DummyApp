@@ -1,13 +1,7 @@
-//
-//  CartStorage.swift
-//  DummyAPILive
-//
-//  Created by Russell Yeo on 15/05/2023.
-//
-
 import Combine
 import DummyAPI
 import Foundation
+import SharedModels
 
 final class CartStorage: ObservableObject {
     var products: [Product: UInt] = [:]

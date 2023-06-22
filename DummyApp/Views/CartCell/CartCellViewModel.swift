@@ -1,11 +1,5 @@
-//
-//  CartCellViewModel.swift
-//  DummyApp
-//
-//  Created by Russell Yeo on 15/06/2023.
-//
-
 import DummyAPI
+import SharedModels
 import SwiftUI
 
 final class CartCellViewModel: ObservableObject {

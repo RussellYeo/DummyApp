@@ -1,12 +1,7 @@
-//
-//  CartView.swift
-//  DummyApp
-//
-//  Created by Russell Yeo on 13/05/2023.
-//
-
 import Combine
 import Dependencies
+import DummyAPI
+import SharedUI
 import SwiftUI
 
 struct CartView: View {
@@ -47,11 +42,10 @@ struct CartView: View {
     }
 }
 
-
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         withDependencies {
-            $0.cartClient = .preview
+            $0.cartClient = .previewValue
         } operation: {
             CartView()
         }

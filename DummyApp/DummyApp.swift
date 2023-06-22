@@ -1,10 +1,5 @@
-//
-//  DummyApp.swift
-//  DummyApp
-//
-//  Created by Russell Yeo on 13/05/2023.
-//
-
+import DummyAPI
+import DummyAPILive
 import SwiftUI
 
 @main

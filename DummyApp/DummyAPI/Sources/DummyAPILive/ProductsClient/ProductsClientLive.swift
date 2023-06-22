@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Dependencies
 import DummyAPI
 
 extension ProductsClient {
@@ -24,10 +25,14 @@ extension ProductsClient {
                         .compactMap { $0 }
                     )
                 )
-                return dtoPublisher.map(\.model)
-                .eraseToAnyPublisher()
+                return dtoPublisher
+                    .map(\.model)
+                    .eraseToAnyPublisher()
             }
         )
     }
 }
 
+extension ProductsClient: DependencyKey {
+    public static let liveValue: ProductsClient = .live
+}

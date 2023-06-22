@@ -3,22 +3,28 @@
 import PackageDescription
 
 let package = Package(
-    name: "DummyAPI",
-    platforms: [.iOS(.v17)],
+    name: "HomeFeature",
+    platforms: [
+        .iOS(.v17)
+    ],
     products: [
         .library(
-            name: "DummyAPI",
-            targets: ["DummyAPI"]
-        ),
-        .library(
-            name: "DummyAPILive",
-            targets: ["DummyAPILive"]
+            name: "HomeFeature",
+            targets: ["HomeFeature"]
         ),
     ],
     dependencies: [
         .package(
+            name: "DummyAPI",
+            path: "DummyApp/DummyAPI"
+        ),
+        .package(
             name: "SharedModels",
             path: "DummyApp/SharedModels"
+        ),
+        .package(
+            name: "SharedUI",
+            path: "DummyApp/SharedUI"
         ),
         .package(
             url: "https://github.com/pointfreeco/swift-dependencies",
@@ -27,23 +33,17 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "DummyAPI",
-            dependencies: [
-                "SharedModels",
-                .product(name: "Dependencies", package: "swift-dependencies")
-            ]
-        ),
-        .target(
-            name: "DummyAPILive",
+            name: "HomeFeature",
             dependencies: [
                 "DummyAPI",
                 "SharedModels",
+                "SharedUI",
                 .product(name: "Dependencies", package: "swift-dependencies")
             ]
         ),
         .testTarget(
-            name: "DummyAPILiveTests",
-            dependencies: ["DummyAPILive"]
-        ),
+            name: "HomeFeatureTests",
+            dependencies: ["HomeFeature"]
+        )
     ]
 )

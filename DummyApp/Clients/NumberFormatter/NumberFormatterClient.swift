@@ -36,14 +36,13 @@ extension NumberFormatterClient {
     }
 }
 
-private enum NumberFormatterClientKey: DependencyKey {
-    static let liveValue = NumberFormatterClient.live
-    static let previewValue = NumberFormatterClient.USD
-}
-
 extension DependencyValues {
     var numberFormatter: NumberFormatterClient {
-        get { self[NumberFormatterClientKey.self] }
-        set { self[NumberFormatterClientKey.self] = newValue }
+        get { self[NumberFormatterClient.self] }
+        set { self[NumberFormatterClient.self] = newValue }
     }
+}
+
+extension NumberFormatterClient: DependencyKey {
+    public static let liveValue: NumberFormatterClient = .live
 }

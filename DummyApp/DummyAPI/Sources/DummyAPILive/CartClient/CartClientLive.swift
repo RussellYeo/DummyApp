@@ -1,11 +1,5 @@
-//
-//  CartClientLive.swift
-//  DummyAPILive
-//
-//  Created by Russell Yeo on 12/06/2023.
-//
-
 import Combine
+import Dependencies
 import DummyAPI
 import Foundation
 
@@ -39,4 +33,8 @@ extension CartClient {
             }
         )
     }
+}
+
+extension CartClient: DependencyKey {
+    public static let liveValue: CartClient = .live
 }

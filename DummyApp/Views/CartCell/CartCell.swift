@@ -1,11 +1,6 @@
-//
-//  CartCell.swift
-//  DummyApp
-//
-//  Created by Russell Yeo on 14/05/2023.
-//
-
 import DummyAPI
+import SharedUI
+import SharedModels
 import SwiftUI
 
 struct CartCell: View {
@@ -36,9 +31,9 @@ struct CartCell: View {
 struct CartCell_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            CartCell(viewModel: .init(product: .constant(Product.iPhoneX), quantity: .constant(2)))
-            CartCell(viewModel: .init(product: .constant(Product.samsungUniverse), quantity: .constant(1)))
-            CartCell(viewModel: .init(product: .constant(Product.iPhone9), quantity: .constant(1)))
+            CartCell(viewModel: .init(product: .constant(.preview_iPhoneX), quantity: .constant(2)))
+            CartCell(viewModel: .init(product: .constant(.preview_samsungUniverse), quantity: .constant(1)))
+            CartCell(viewModel: .init(product: .constant(.preview_iPhone9), quantity: .constant(1)))
         }
     }
 }

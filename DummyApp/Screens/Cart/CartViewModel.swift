@@ -1,18 +1,11 @@
-//
-//  CartViewModel.swift
-//  DummyApp
-//
-//  Created by Russell Yeo on 13/05/2023.
-//
-
 import Combine
 import Dependencies
 import DummyAPI
 import Foundation
 
 final class CartViewModel: ObservableObject {
-    @Dependency(\.cartClient) var cartClient
-    @Dependency(\.numberFormatter) var numberFormatter
+    @Dependency(\.cartClient) var cartClient: CartClient
+    @Dependency(\.numberFormatter) var numberFormatter: NumberFormatterClient
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,7 +16,6 @@ final class CartViewModel: ObservableObject {
     @Published var totalProducts: UInt?
     
     init() {
-        self.numberFormatter.setNumberStyle(.currency)
         self.updateStorage()
         self.updateUI()
     }
