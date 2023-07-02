@@ -11,10 +11,14 @@ struct ProductCell: View {
     }
 }
 
+#if DEBUG
+import SharedModelsPreview
+
 struct ProductCell_Previews: PreviewProvider {
     static var previews: some View {
         ProductCell(product: .preview_iPhone9)
             .frame(width: 50, height: 50)
     }
 }
+#endif
 

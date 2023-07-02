@@ -1,4 +1,5 @@
 import DeveloperToolsSupport
+import SharedModels
 
 public extension Product {
     static var preview_iPhone9: Product {

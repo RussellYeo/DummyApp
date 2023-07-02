@@ -1,14 +1,9 @@
-//
-//  CartViewModelTests.swift
-//  DummyAppTests
-//
-//  Created by Russell Yeo on 15/05/2023.
-//
-
 import Combine
 import Dependencies
 @testable import DummyApp
 import DummyAPI
+import SharedModels
+import SharedModelsMocks
 import XCTest
 
 final class CartViewModelTests: XCTestCase {

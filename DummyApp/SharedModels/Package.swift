@@ -9,16 +9,21 @@ let package = Package(
     products: [
         .library(
             name: "SharedModels",
-            targets: ["SharedModels"]
-        ),
+            targets: ["SharedModels", "SharedModelsMocks", "SharedModelsPreview"]
+        )
     ],
     targets: [
         .target(
             name: "SharedModels"
         ),
-        .testTarget(
-            name: "SharedModelsTests",
+        .target(
+            name: "SharedModelsMocks",
             dependencies: ["SharedModels"]
         ),
+        .target(
+            name: "SharedModelsPreview",
+            dependencies: ["SharedModels"],
+            resources: [.process("Assets.xcassets")]
+        )
     ]
 )

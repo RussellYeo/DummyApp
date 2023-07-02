@@ -42,6 +42,9 @@ struct CartView: View {
     }
 }
 
+#if DEBUG
+import DummyAPIPreview
+
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         withDependencies {
@@ -51,3 +54,4 @@ struct CartView_Previews: PreviewProvider {
         }
     }
 }
+#endif

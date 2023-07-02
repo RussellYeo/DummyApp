@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46073D322A439531006D2C81 /* DummyAPILive in Frameworks */ = {isa = PBXBuildFile; productRef = 46073D312A439531006D2C81 /* DummyAPILive */; };
 		46073D362A45856F006D2C81 /* SharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = 46073D352A45856F006D2C81 /* SharedUI */; };
 		46073D382A458664006D2C81 /* HomeFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 46073D372A458664006D2C81 /* HomeFeature */; };
 		464BD2022A516F4700F7F46B /* SharedModels in Frameworks */ = {isa = PBXBuildFile; productRef = 464BD2012A516F4700F7F46B /* SharedModels */; };
@@ -39,6 +38,7 @@
 		46073D342A4421AB006D2C81 /* SharedUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SharedUI; path = DummyApp/SharedUI; sourceTree = "<group>"; };
 		46073DA72A502010006D2C81 /* SharedModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SharedModels; path = DummyApp/SharedModels; sourceTree = "<group>"; };
 		464BD2052A5173C400F7F46B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		465077DF2A518D0200132327 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		46636B0D2A0F92D000624D9C /* DummyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46636B102A0F92D000624D9C /* DummyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyApp.swift; sourceTree = "<group>"; };
 		46636B122A0F92D000624D9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46073D322A439531006D2C81 /* DummyAPILive in Frameworks */,
 				464BD2022A516F4700F7F46B /* SharedModels in Frameworks */,
 				46073D362A45856F006D2C81 /* SharedUI in Frameworks */,
 				46073D382A458664006D2C81 /* HomeFeature in Frameworks */,
@@ -85,9 +84,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		465077DE2A518CF200132327 /* TestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				465077DF2A518D0200132327 /* UnitTests.xctestplan */,
+			);
+			path = TestPlans;
+			sourceTree = "<group>";
+		};
 		46636B042A0F92D000624D9C = {
 			isa = PBXGroup;
 			children = (
+				465077DE2A518CF200132327 /* TestPlans */,
 				46073DA72A502010006D2C81 /* SharedModels */,
 				46073D342A4421AB006D2C81 /* SharedUI */,
 				46073D302A4390AA006D2C81 /* HomeFeature */,
@@ -214,7 +222,6 @@
 			packageProductDependencies = (
 				46F9AA802A3780160051F2E8 /* Dependencies */,
 				4679447E2A42D9FE00A36EA4 /* DummyAPI */,
-				46073D312A439531006D2C81 /* DummyAPILive */,
 				46073D352A45856F006D2C81 /* SharedUI */,
 				46073D372A458664006D2C81 /* HomeFeature */,
 				464BD2012A516F4700F7F46B /* SharedModels */,
@@ -588,10 +595,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		46073D312A439531006D2C81 /* DummyAPILive */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DummyAPILive;
-		};
 		46073D352A45856F006D2C81 /* SharedUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedUI;

@@ -37,8 +37,12 @@ struct ProductDetailsView: View {
     }
 }
 
-//struct ProductDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductDetailsView(product: .iPhoneX)
-//    }
-//}
+#if DEBUG
+import SharedModelsPreview
+
+struct ProductDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductDetailsView(product: .preview_iPhoneX)
+    }
+}
+#endif

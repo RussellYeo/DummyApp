@@ -1,35 +1,54 @@
 import Combine
 import Dependencies
+import SharedModels
+import SharedModelsMocks
 
 extension DependencyValues {
-    public var productsClient: ProductsClient {
-        get { self[ProductsClient.self] }
-        set { self[ProductsClient.self] = newValue }
+    public var cartClient: CartClient {
+        get { self[CartClient.self] }
+        set { self[CartClient.self] = newValue }
     }
 }
 
-extension ProductsClient: TestDependencyKey {
+extension CartClient: TestDependencyKey {
     public static var previewValue: Self {
-        let page = ProductsPage(
-            products: [
-                .preview_iPhone9,
-                .preview_iPhoneX,
-                .preview_samsungUniverse
-            ],
-            total: 10,
-            skip: 0,
-            limit: 3
+        let items: [CartItem] = [
+            CartItem(product: .iPhoneX, quantity: 2),
+            CartItem(product: .samsungUniverse, quantity: 1)
+        ]
+        let cart = Cart(
+            items: items,
+            totalPrice: items.map(\.product).map(\.price).reduce(0, +),
+            totalProducts: UInt(items.count),
+            totalQuantity: items.map(\.quantity).reduce(0, +)
         )
+        let cartPublisher = Just(cart)
+            .setFailureType(to: Never.self)
+            .eraseToAnyPublisher()
         return Self(
-            getProducts: { (_, _) in
-                Just(page)
-                    .setFailureType(to: Error.self)
-                    .eraseToAnyPublisher()
-            }
+            cartPublisher: cartPublisher,
+            addToCart: { (_) in },
+            getQuantity: { (_) in nil },
+            updateQuantity: { (_,_) in true }
         )
     }
     
     public static let testValue = Self(
-        getProducts: unimplemented("\(Self.self).getProducts")
+        cartPublisher: unimplemented("\(Self.self).cartPublisher"),
+        addToCart: unimplemented("\(Self.self).addToCart"),
+        getQuantity: unimplemented("\(Self.self).getQuantity"),
+        updateQuantity: unimplemented("\(Self.self).updateQuantity")
     )
+    
+    public static var noop: Self {
+        let cartPublisher = Just(Cart(items: [], totalPrice: 0, totalProducts: 0, totalQuantity: 0))
+            .setFailureType(to: Never.self)
+            .eraseToAnyPublisher()
+        return Self(
+            cartPublisher: cartPublisher,
+            addToCart: { (_) in },
+            getQuantity: { (_) in nil },
+            updateQuantity: { (_,_) in true }
+        )
+    }
 }

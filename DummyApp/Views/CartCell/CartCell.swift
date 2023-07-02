@@ -28,6 +28,9 @@ struct CartCell: View {
     }
 }
 
+#if DEBUG
+import SharedModelsPreview
+
 struct CartCell_Previews: PreviewProvider {
     static var previews: some View {
         List {
@@ -37,3 +40,4 @@ struct CartCell_Previews: PreviewProvider {
         }
     }
 }
+#endif

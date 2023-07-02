@@ -37,8 +37,12 @@ public struct ProductImage: View {
     }
 }
 
-//struct ProductImage_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductImage(imageSource: .preview(.init(name: "1", bundle: .main)))
-//    }
-//}
+#if DEBUG
+import SharedModelsPreview
+
+struct ProductImage_Previews: PreviewProvider {
+    static var previews: some View {
+        ProductImage(imageSource: .preview(.preview1))
+    }
+}
+#endif

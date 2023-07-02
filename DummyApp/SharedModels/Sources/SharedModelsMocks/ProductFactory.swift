@@ -1,14 +1,7 @@
-//
-//  ProductFactory.swift
-//  DummyAPITests
-//
-//  Created by Russell Yeo on 21/06/2023.
-//
-
-import DummyAPI
 import Foundation
+import SharedModels
 
-extension Product {
+public extension Product {
     static var iPhone9: Product {
         Product(
             id: 1,

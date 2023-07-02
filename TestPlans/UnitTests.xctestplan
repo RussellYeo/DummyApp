@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "23B56502-0B9C-40AE-A097-6F6C2F6E9201",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:DummyApp\/DummyAPI",
+        "identifier" : "DummyAPILiveTests",
+        "name" : "DummyAPILiveTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:DummyApp.xcodeproj",
+        "identifier" : "46636B282A0F996000624D9C",
+        "name" : "DummyAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:DummyApp\/HomeFeature",
+        "identifier" : "HomeFeatureTests",
+        "name" : "HomeFeatureTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -27,6 +27,9 @@ struct ImageCarousel: View {
     }
 }
 
+#if DEBUG
+import SharedModelsPreview
+
 struct ImageCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         ImageCarousel(
@@ -40,3 +43,4 @@ struct ImageCarouselView_Previews: PreviewProvider {
         .frame(width: 300, height: 300)
     }
 }
+#endif

@@ -67,12 +67,16 @@ public struct HomeView: View {
     }
 }
 
+#if DEBUG
+import DummyAPIPreview
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         withDependencies {
-            $0.productsClient = .previewValue
+            $0.productsClient = .preview
         } operation: {
             HomeView()
         }
     }
 }
+#endif

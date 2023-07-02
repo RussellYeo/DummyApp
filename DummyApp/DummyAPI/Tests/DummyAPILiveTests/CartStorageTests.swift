@@ -1,12 +1,7 @@
-//
-//  CartStorageTests.swift
-//  DummyAPITests
-//
-//  Created by Russell Yeo on 13/05/2023.
-//
-
 import DummyAPI
 @testable import DummyAPILive
+import SharedModels
+import SharedModelsMocks
 import XCTest
 
 final class CartStorageTests: XCTestCase {
