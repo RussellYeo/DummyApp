@@ -28,6 +28,7 @@
 		46636B102A0F92D000624D9C /* DummyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyApp.swift; sourceTree = "<group>"; };
 		46636B122A0F92D000624D9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46636B142A0F92D100624D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		466D7CB42A51B7D8003D0A5B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4679447C2A42D43700A36EA4 /* DummyAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DummyAPI; path = DummyApp/DummyAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +60,7 @@
 		46636B042A0F92D000624D9C = {
 			isa = PBXGroup;
 			children = (
+				466D7CB42A51B7D8003D0A5B /* README.md */,
 				46053E852A51B33D00F1AA2A /* CartFeature */,
 				4679447C2A42D43700A36EA4 /* DummyAPI */,
 				46073D302A4390AA006D2C81 /* HomeFeature */,
