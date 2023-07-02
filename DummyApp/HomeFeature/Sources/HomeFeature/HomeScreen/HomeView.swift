@@ -29,7 +29,7 @@ public struct HomeView: View {
     
     public var body: some View {
         NavigationView {
-            if viewModel.error != nil {
+            if !viewModel.isConnected || viewModel.error != nil {
                 VStack {
                     Spacer()
                     EmptyStateView(model: .internetNotAvailable)
@@ -58,9 +58,6 @@ public struct HomeView: View {
                         .padding(16)
                     }
                 }
-                .onAppear {
-                    viewModel.fetchFirstPage()
-                }
                 .navigationTitle("Products")
             }
         }
@@ -69,10 +66,12 @@ public struct HomeView: View {
 
 #if DEBUG
 import DummyAPIPreview
+import PathMonitorClientMocks
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         withDependencies {
+            $0.pathMonitorClient = .satisfied
             $0.productsClient = .preview
         } operation: {
             HomeView()

@@ -19,6 +19,10 @@ let package = Package(
             path: "DummyApp/DummyAPI"
         ),
         .package(
+            name: "PathMonitorClient",
+            path: "DummyApp/PathMonitorClient"
+        ),
+        .package(
             name: "SharedModels",
             path: "DummyApp/SharedModels"
         ),
@@ -36,6 +40,7 @@ let package = Package(
             name: "HomeFeature",
             dependencies: [
                 "DummyAPI",
+                "PathMonitorClient",
                 "SharedModels",
                 "SharedUI",
                 .product(name: "Dependencies", package: "swift-dependencies")

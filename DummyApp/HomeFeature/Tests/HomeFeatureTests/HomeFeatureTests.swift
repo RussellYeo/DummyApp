@@ -49,7 +49,7 @@ class HomeViewModelTests: XCTestCase {
             .store(in: &cancellables)
         
         // WHEN we fetch the first page
-        viewModel.fetchFirstPage()
+        viewModel.fetchMore()
         
         // THEN the ViewModel successfully receives some products
         wait(for: [expectation], timeout: 1.0)

@@ -2,22 +2,40 @@ import Combine
 import Dependencies
 import DummyAPI
 import Foundation
+import PathMonitorClient
 import SharedModels
 
 final class HomeViewModel: ObservableObject {
+    @Dependency(\.pathMonitorClient) var pathMonitorClient: PathMonitorClient
     @Dependency(\.productsClient) var productsClient: ProductsClient
     
+    @Published var isConnected: Bool = true
     @Published var products: [Product] = []
     @Published var error: Error?
     
     private var cancellables = Set<AnyCancellable>()
     
-    func fetchFirstPage() {
-        guard products.count == 0 else { return }
-        fetchNextPage()
+    init() {
+        pathMonitorClient.setPathUpdateHandler { [weak self] path in
+            guard let self else {
+                return
+            }
+            self.isConnected = path.status == .satisfied
+            if self.isConnected {
+                self.fetchMore()
+            } else {
+                self.products = []
+            }
+        }
+        pathMonitorClient.start(.main)
     }
     
-    func fetchNextPage() {
+    deinit {
+        pathMonitorClient.cancel()
+    }
+    
+    func fetchMore() {
+        guard isConnected else { return }
         productsClient
             .getProducts(products.count, 30)
             .receive(on: DispatchQueue.main)
@@ -35,7 +53,7 @@ final class HomeViewModel: ObservableObject {
         let indexShouldFetchNextPage = products.count - 4
         
         if currentIndex == indexShouldFetchNextPage {
-            fetchNextPage()
+            fetchMore()
         }
     }
 }
