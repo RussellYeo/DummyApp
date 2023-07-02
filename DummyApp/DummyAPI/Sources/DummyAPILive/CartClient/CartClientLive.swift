@@ -22,6 +22,7 @@ extension CartClient {
             cartPublisher: cartPublisher,
             addToCart: { (product) in
                 storage.add(product: product)
+                storageSubject.send(storage)
             },
             getQuantity: { (product) in
                 storage.getQuantity(product: product)
