@@ -1,13 +1,13 @@
-import Combine
 import Dependencies
-import DummyAPI
 import SharedUI
 import SwiftUI
 
-struct CartView: View {
+public struct CartView: View {
     @StateObject var viewModel: CartViewModel = .init()
     
-    var body: some View {
+    public init() {}
+    
+    public var body: some View {
         NavigationView {
             VStack {
                 if viewModel.isEmptyState {
@@ -48,7 +48,7 @@ import DummyAPIPreview
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         withDependencies {
-            $0.cartClient = .previewValue
+            $0.cartClient = .preview
         } operation: {
             CartView()
         }

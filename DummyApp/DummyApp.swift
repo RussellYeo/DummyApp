@@ -1,5 +1,3 @@
-import DummyAPI
-import DummyAPILive
 import SwiftUI
 
 @main

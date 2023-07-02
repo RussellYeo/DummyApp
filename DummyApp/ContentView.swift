@@ -1,5 +1,5 @@
+import CartFeature
 import Dependencies
-import DummyAPI
 import HomeFeature
 import SwiftUI
 

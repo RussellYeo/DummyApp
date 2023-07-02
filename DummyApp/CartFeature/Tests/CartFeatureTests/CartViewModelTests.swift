@@ -1,7 +1,7 @@
 import Combine
 import Dependencies
-@testable import DummyApp
 import DummyAPI
+@testable import CartFeature
 import SharedModels
 import SharedModelsMocks
 import XCTest
@@ -37,6 +37,7 @@ final class CartViewModelTests: XCTestCase {
         
         // WHEN we initialise the ViewModel
         let viewModel = withDependencies {
+            $0.cartClient = .noop
             $0.cartClient.cartPublisher = cartPublisher
             $0.numberFormatter = .USD
         } operation: {

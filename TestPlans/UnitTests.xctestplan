@@ -21,16 +21,16 @@
     },
     {
       "target" : {
-        "containerPath" : "container:DummyApp.xcodeproj",
-        "identifier" : "46636B282A0F996000624D9C",
-        "name" : "DummyAppTests"
+        "containerPath" : "container:DummyApp\/HomeFeature",
+        "identifier" : "HomeFeatureTests",
+        "name" : "HomeFeatureTests"
       }
     },
     {
       "target" : {
-        "containerPath" : "container:DummyApp\/HomeFeature",
-        "identifier" : "HomeFeatureTests",
-        "name" : "HomeFeatureTests"
+        "containerPath" : "container:DummyApp\/CartFeature",
+        "identifier" : "CartFeatureTests",
+        "name" : "CartFeatureTests"
       }
     }
   ],

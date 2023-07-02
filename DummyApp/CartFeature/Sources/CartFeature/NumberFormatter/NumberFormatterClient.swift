@@ -8,7 +8,7 @@
 import Dependencies
 import Foundation
 
-struct NumberFormatterClient {
+public struct NumberFormatterClient {
     /// Update the number formatter style
     var setNumberStyle: (NumberFormatter.Style) -> ()
     /// Produce a string from a decimal number
@@ -24,7 +24,7 @@ extension NumberFormatterClient {
         )
     }
     
-    static var USD: Self {
+    public static var USD: Self {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = .init(identifier: "en_US")
@@ -37,7 +37,7 @@ extension NumberFormatterClient {
 }
 
 extension DependencyValues {
-    var numberFormatter: NumberFormatterClient {
+    public var numberFormatter: NumberFormatterClient {
         get { self[NumberFormatterClient.self] }
         set { self[NumberFormatterClient.self] = newValue }
     }
@@ -45,4 +45,22 @@ extension DependencyValues {
 
 extension NumberFormatterClient: DependencyKey {
     public static let liveValue: NumberFormatterClient = .live
+}
+
+extension NumberFormatterClient: TestDependencyKey {
+    public static let previewValue: NumberFormatterClient = .noop
+    
+    public static var testValue: Self {
+        return Self(
+            setNumberStyle: unimplemented("\(Self.self).setNumberStyle"),
+            string: unimplemented("\(Self.self).string")
+        )
+    }
+    
+    static var noop: Self {
+        return Self(
+            setNumberStyle: { _ in },
+            string: { _ in "" }
+        )
+    }
 }

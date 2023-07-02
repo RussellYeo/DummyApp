@@ -3,6 +3,7 @@ import Dependencies
 import DummyAPI
 @testable import HomeFeature
 import SharedModels
+import SharedModelsMocks
 import XCTest
 
 class HomeViewModelTests: XCTestCase {
@@ -22,11 +23,12 @@ class HomeViewModelTests: XCTestCase {
     func testFetchFirstPage() {
         // GIVEN some products will be returned by the products client
         let viewModel = withDependencies {
+            $0.productsClient = .noop
             $0.productsClient.getProducts = { (_, _) in
                 let products: [Product] = [
-                    .preview_iPhoneX,
-                    .preview_iPhone9,
-                    .preview_samsungUniverse
+                    .iPhoneX,
+                    .iPhone9,
+                    .samsungUniverse
                 ]
                 let page = ProductsPage(products: products, total: 10, skip: 0, limit: 3)
                 return Just(page)
