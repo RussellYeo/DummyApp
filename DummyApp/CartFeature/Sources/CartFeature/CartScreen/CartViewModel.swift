@@ -3,7 +3,7 @@ import Dependencies
 import DummyAPI
 import Foundation
 
-final class CartViewModel: ObservableObject {
+public final class CartViewModel: ObservableObject {
     @Dependency(\.cartClient) var cartClient: CartClient
     @Dependency(\.numberFormatter) var numberFormatter: NumberFormatterClient
     
@@ -15,7 +15,7 @@ final class CartViewModel: ObservableObject {
     @Published var totalQuantity: UInt?
     @Published var totalProducts: UInt?
     
-    init() {
+    public init() {
         self.updateStorage()
         self.updateUI()
     }

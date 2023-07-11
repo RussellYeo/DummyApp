@@ -1,12 +1,15 @@
 import Dependencies
 import DummyAPI
+import PathMonitorClient
 import SharedUI
 import SwiftUI
 
 public struct HomeView: View {
-    @StateObject var viewModel: HomeViewModel = .init()
+    @StateObject var viewModel: HomeViewModel
     
-    public init() {}
+    public init(viewModel: HomeViewModel = .init()) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -64,18 +67,13 @@ public struct HomeView: View {
     }
 }
 
-#if DEBUG
-import DummyAPIPreview
-import PathMonitorClientMocks
-
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        withDependencies {
+        HomeView(viewModel: withDependencies {
             $0.pathMonitorClient = .satisfied
             $0.productsClient = .preview
         } operation: {
-            HomeView()
-        }
+            HomeViewModel()
+        })
     }
 }
-#endif

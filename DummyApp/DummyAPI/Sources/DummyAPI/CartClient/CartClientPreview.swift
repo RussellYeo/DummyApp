@@ -1,5 +1,4 @@
 import Combine
-import DummyAPI
 import SharedModelsPreview
 
 extension CartClient {

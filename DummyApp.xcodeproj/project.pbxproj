@@ -14,8 +14,9 @@
 		46636B132A0F92D000624D9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B122A0F92D000624D9C /* ContentView.swift */; };
 		46636B152A0F92D100624D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46636B142A0F92D100624D9C /* Assets.xcassets */; };
 		4679447F2A42D9FE00A36EA4 /* DummyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 4679447E2A42D9FE00A36EA4 /* DummyAPI */; };
+		468715B82A5DE914008E0E01 /* DummyAPILive in Frameworks */ = {isa = PBXBuildFile; productRef = 468715B72A5DE914008E0E01 /* DummyAPILive */; };
+		46BB16662A5DE95100C11A99 /* PathMonitorClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = 46BB16652A5DE95100C11A99 /* PathMonitorClientLive */; };
 		46C14B2E2A51B18F009FEC61 /* CartFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 46C14B2D2A51B18F009FEC61 /* CartFeature */; };
-		46D387E12A51ECB900BF6C6A /* PathMonitorClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = 46D387E02A51ECB900BF6C6A /* PathMonitorClientLive */; };
 		46F9AA812A3780160051F2E8 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 46F9AA802A3780160051F2E8 /* Dependencies */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				468715B82A5DE914008E0E01 /* DummyAPILive in Frameworks */,
+				46BB16662A5DE95100C11A99 /* PathMonitorClientLive in Frameworks */,
 				464BD2022A516F4700F7F46B /* SharedModels in Frameworks */,
-				46D387E12A51ECB900BF6C6A /* PathMonitorClientLive in Frameworks */,
 				46073D362A45856F006D2C81 /* SharedUI in Frameworks */,
 				46073D382A458664006D2C81 /* HomeFeature in Frameworks */,
 				4679447F2A42D9FE00A36EA4 /* DummyAPI in Frameworks */,
@@ -125,7 +127,8 @@
 				46073D372A458664006D2C81 /* HomeFeature */,
 				464BD2012A516F4700F7F46B /* SharedModels */,
 				46C14B2D2A51B18F009FEC61 /* CartFeature */,
-				46D387E02A51ECB900BF6C6A /* PathMonitorClientLive */,
+				468715B72A5DE914008E0E01 /* DummyAPILive */,
+				46BB16652A5DE95100C11A99 /* PathMonitorClientLive */,
 			);
 			productName = DummyApp;
 			productReference = 46636B0D2A0F92D000624D9C /* DummyApp.app */;
@@ -416,13 +419,17 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = DummyAPI;
 		};
+		468715B72A5DE914008E0E01 /* DummyAPILive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DummyAPILive;
+		};
+		46BB16652A5DE95100C11A99 /* PathMonitorClientLive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PathMonitorClientLive;
+		};
 		46C14B2D2A51B18F009FEC61 /* CartFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CartFeature;
-		};
-		46D387E02A51ECB900BF6C6A /* PathMonitorClientLive */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PathMonitorClientLive;
 		};
 		46F9AA802A3780160051F2E8 /* Dependencies */ = {
 			isa = XCSwiftPackageProductDependency;

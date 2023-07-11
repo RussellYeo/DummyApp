@@ -8,7 +8,11 @@ let package = Package(
     products: [
         .library(
             name: "DummyAPI",
-            targets: ["DummyAPI", "DummyAPILive", "DummyAPIPreview"]
+            targets: ["DummyAPI"]
+        ),
+        .library(
+            name: "DummyAPILive",
+            targets: ["DummyAPILive"]
         )
     ],
     dependencies: [
@@ -34,12 +38,6 @@ let package = Package(
             dependencies: [
                 "DummyAPI",
                 .product(name: "Dependencies", package: "swift-dependencies")
-            ]
-        ),
-        .target(
-            name: "DummyAPIPreview",
-            dependencies: [
-                "DummyAPI"
             ]
         ),
         .testTarget(

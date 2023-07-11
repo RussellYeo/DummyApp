@@ -8,7 +8,7 @@ let package = Package(
     products: [
         .library(
             name: "PathMonitorClient",
-            targets: ["PathMonitorClient", "PathMonitorClientMocks"]
+            targets: ["PathMonitorClient"]
         ),
         .library(
             name: "PathMonitorClientLive",
@@ -33,12 +33,6 @@ let package = Package(
             dependencies: [
                 "PathMonitorClient",
                 .product(name: "Dependencies", package: "swift-dependencies")
-            ]
-        ),
-        .target(
-            name: "PathMonitorClientMocks",
-            dependencies: [
-                "PathMonitorClient"
             ]
         ),
         .testTarget(

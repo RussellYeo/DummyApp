@@ -5,7 +5,7 @@ import Foundation
 import PathMonitorClient
 import SharedModels
 
-final class HomeViewModel: ObservableObject {
+public final class HomeViewModel: ObservableObject {
     @Dependency(\.pathMonitorClient) var pathMonitorClient: PathMonitorClient
     @Dependency(\.productsClient) var productsClient: ProductsClient
     
@@ -15,23 +15,20 @@ final class HomeViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init() {
-        pathMonitorClient.setPathUpdateHandler { [weak self] path in
-            guard let self else {
-                return
+    public init() {
+        pathMonitorClient.networkPathPublisher
+            .map { $0.status == .satisfied }
+            .removeDuplicates()
+            .sink { [weak self] isConnected in
+                guard let self else { return }
+                self.isConnected = isConnected
+                if self.isConnected {
+                    self.fetchMore()
+                } else {
+                    self.products = []
+                }
             }
-            self.isConnected = path.status == .satisfied
-            if self.isConnected {
-                self.fetchMore()
-            } else {
-                self.products = []
-            }
-        }
-        pathMonitorClient.start(.main)
-    }
-    
-    deinit {
-        pathMonitorClient.cancel()
+            .store(in: &cancellables)
     }
     
     func fetchMore() {

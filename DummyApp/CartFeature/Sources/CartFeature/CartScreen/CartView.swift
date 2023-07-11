@@ -1,11 +1,14 @@
 import Dependencies
+import DummyAPI
 import SharedUI
 import SwiftUI
 
 public struct CartView: View {
-    @StateObject var viewModel: CartViewModel = .init()
+    @StateObject var viewModel: CartViewModel
     
-    public init() {}
+    public init(viewModel: CartViewModel = .init()) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     public var body: some View {
         NavigationView {
@@ -42,16 +45,12 @@ public struct CartView: View {
     }
 }
 
-#if DEBUG
-import DummyAPIPreview
-
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        withDependencies {
+        CartView(viewModel: withDependencies {
             $0.cartClient = .preview
         } operation: {
-            CartView()
-        }
+            CartViewModel()
+        })
     }
 }
-#endif

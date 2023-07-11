@@ -1,3 +1,4 @@
+import Combine
 import Dependencies
 
 extension DependencyValues {
@@ -9,9 +10,7 @@ extension DependencyValues {
 
 extension PathMonitorClient: TestDependencyKey {
     public static let testValue = Self(
-        setPathUpdateHandler: unimplemented("\(Self.self).setPathUpdateHandler"),
-        start: unimplemented("\(Self.self).start"),
-        cancel: unimplemented("\(Self.self).cancel")
+        networkPathPublisher: unimplemented("\(Self.self).networkPathPublisher")
     )
 }
 

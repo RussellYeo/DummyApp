@@ -20,9 +20,6 @@ struct ContentView: View {
     }
 }
 
-#if DEBUG
-import DummyAPIPreview
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         withDependencies {
@@ -34,4 +31,3 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
 }
-#endif
