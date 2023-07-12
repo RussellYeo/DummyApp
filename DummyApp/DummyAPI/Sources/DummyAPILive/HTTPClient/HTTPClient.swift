@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-final class HTTPClientLive: HTTPClient {
+struct HTTPClient {
     private let baseURL: URL
     private let session: URLSession
     private let decoder: JSONDecoder

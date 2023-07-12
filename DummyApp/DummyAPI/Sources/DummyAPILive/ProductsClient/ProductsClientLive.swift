@@ -11,7 +11,7 @@ import DummyAPI
 
 extension ProductsClient {
     public static var live: Self {
-        let httpClient = HTTPClientLive()
+        let httpClient = HTTPClient()
         
         return Self(
             getProducts: { (skip, limit) in
