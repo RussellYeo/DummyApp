@@ -1,6 +1,5 @@
 import Combine
 import Foundation
-import PathMonitorClient
 import Network
 
 extension PathMonitorClient {

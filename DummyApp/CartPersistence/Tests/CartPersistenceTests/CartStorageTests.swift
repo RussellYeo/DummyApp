@@ -1,5 +1,5 @@
-import DummyAPI
-@testable import DummyAPILive
+import CartPersistence
+@testable import CartPersistenceLive
 import SharedModels
 import SharedModelsMocks
 import XCTest

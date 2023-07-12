@@ -1,6 +1,6 @@
+import CartPersistence
 import Combine
 import Dependencies
-import DummyAPI
 import Foundation
 
 public final class CartViewModel: ObservableObject {

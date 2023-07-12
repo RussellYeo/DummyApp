@@ -15,6 +15,10 @@ let package = Package(
     ],
     dependencies: [
         .package(
+            name: "CartPersistence",
+            path: "DummyApp/CartPersistence"
+        ),
+        .package(
             name: "DummyAPI",
             path: "DummyApp/DummyAPI"
         ),
@@ -39,6 +43,7 @@ let package = Package(
         .target(
             name: "HomeFeature",
             dependencies: [
+                "CartPersistence",
                 "DummyAPI",
                 "PathMonitorClient",
                 "SharedModels",

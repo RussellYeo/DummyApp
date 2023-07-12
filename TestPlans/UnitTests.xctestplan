@@ -32,6 +32,20 @@
         "identifier" : "CartFeatureTests",
         "name" : "CartFeatureTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:DummyApp\/CartPersistence",
+        "identifier" : "CartPersistenceLiveTests",
+        "name" : "CartPersistenceLiveTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:DummyApp\/PathMonitorClient",
+        "identifier" : "PathMonitorClientLiveTests",
+        "name" : "PathMonitorClientLiveTests"
+      }
     }
   ],
   "version" : 1

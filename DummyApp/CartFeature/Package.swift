@@ -15,8 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            name: "DummyAPI",
-            path: "DummyApp/DummyAPI"
+            name: "CartPersistence",
+            path: "DummyApp/CartPersistence"
         ),
         .package(
             name: "SharedModels",
@@ -35,7 +35,7 @@ let package = Package(
         .target(
             name: "CartFeature",
             dependencies: [
-                "DummyAPI",
+                "CartPersistence",
                 "SharedModels",
                 "SharedUI",
                 .product(name: "Dependencies", package: "swift-dependencies")

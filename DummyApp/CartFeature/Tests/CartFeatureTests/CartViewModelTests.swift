@@ -1,6 +1,6 @@
+import CartPersistence
 import Combine
 import Dependencies
-import DummyAPI
 @testable import CartFeature
 import SharedModels
 import SharedModelsMocks

@@ -1,5 +1,5 @@
+import CartPersistence
 import Dependencies
-import DummyAPI
 import Foundation
 import SharedModels
 

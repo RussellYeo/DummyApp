@@ -1,6 +1,6 @@
+import CartPersistence
 import Combine
 import Dependencies
-import DummyAPI
 import Foundation
 
 extension CartClient {
