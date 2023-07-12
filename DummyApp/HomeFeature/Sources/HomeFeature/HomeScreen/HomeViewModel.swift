@@ -7,7 +7,7 @@ import SharedModels
 
 public final class HomeViewModel: ObservableObject {
     @Dependency(\.pathMonitorClient) var pathMonitorClient: PathMonitorClient
-    @Dependency(\.productsClient) var productsClient: ProductsClient
+    @Dependency(\.dummyAPIClient) var dummyAPIClient: DummyAPIClient
     
     @Published var isConnected: Bool = true
     @Published var products: [Product] = []
@@ -33,7 +33,7 @@ public final class HomeViewModel: ObservableObject {
     
     func fetchMore() {
         guard isConnected else { return }
-        productsClient
+        dummyAPIClient
             .getProducts(products.count, 30)
             .receive(on: DispatchQueue.main)
             .sink(

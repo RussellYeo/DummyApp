@@ -2,13 +2,13 @@ import Combine
 import Dependencies
 
 extension DependencyValues {
-    public var productsClient: ProductsClient {
-        get { self[ProductsClient.self] }
-        set { self[ProductsClient.self] = newValue }
+    public var dummyAPIClient: DummyAPIClient {
+        get { self[DummyAPIClient.self] }
+        set { self[DummyAPIClient.self] = newValue }
     }
 }
 
-extension ProductsClient: TestDependencyKey {
+extension DummyAPIClient: TestDependencyKey {
     public static var previewValue: Self = .noop
     
     public static let testValue = Self(

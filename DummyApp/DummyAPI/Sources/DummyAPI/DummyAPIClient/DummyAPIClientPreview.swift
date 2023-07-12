@@ -1,8 +1,7 @@
 import Combine
-import DummyAPI
 import SharedModelsPreview
 
-extension ProductsClient {
+extension DummyAPIClient {
     public static var preview: Self {
         let page = ProductsPage(
             products: [

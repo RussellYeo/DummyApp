@@ -10,7 +10,7 @@ import Dependencies
 import Foundation
 
 /// Provides access to products
-public struct ProductsClient {
+public struct DummyAPIClient {
     /// Fetches a list of products with optional pagination parameters.
     /// - Parameters:
     ///   - skip: The number of products to skip. Default value is 0.

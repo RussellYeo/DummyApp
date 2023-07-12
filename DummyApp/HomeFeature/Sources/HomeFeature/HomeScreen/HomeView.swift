@@ -71,7 +71,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(viewModel: withDependencies {
             $0.pathMonitorClient = .satisfied
-            $0.productsClient = .preview
+            $0.dummyAPIClient = .preview
         } operation: {
             HomeViewModel()
         })

@@ -9,7 +9,7 @@ import Combine
 import Dependencies
 import DummyAPI
 
-extension ProductsClient {
+extension DummyAPIClient {
     public static var live: Self {
         let httpClient = HTTPClient()
         
@@ -33,6 +33,6 @@ extension ProductsClient {
     }
 }
 
-extension ProductsClient: DependencyKey {
-    public static let liveValue: ProductsClient = .live
+extension DummyAPIClient: DependencyKey {
+    public static let liveValue: DummyAPIClient = .live
 }

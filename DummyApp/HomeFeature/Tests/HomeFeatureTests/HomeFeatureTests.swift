@@ -23,8 +23,8 @@ class HomeViewModelTests: XCTestCase {
     func testFetchFirstPage() {
         // GIVEN some products will be returned by the products client
         let viewModel = withDependencies {
-            $0.productsClient = .noop
-            $0.productsClient.getProducts = { (_, _) in
+            $0.pathMonitorClient = .satisfied
+            $0.dummyAPIClient.getProducts = { (_, _) in
                 let products: [Product] = [
                     .iPhoneX,
                     .iPhone9,
@@ -48,11 +48,10 @@ class HomeViewModelTests: XCTestCase {
             }
             .store(in: &cancellables)
         
-        // WHEN we fetch the first page
-        viewModel.fetchMore()
-        
-        // THEN the ViewModel successfully receives some products
+        // WHEN the ViewModel is initialised
         wait(for: [expectation], timeout: 1.0)
+        
+        // THEN there are some products to display
         XCTAssertEqual(viewModel.products.count, 3)
         XCTAssertNil(viewModel.error)
     }
