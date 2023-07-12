@@ -19,15 +19,3 @@ struct ContentView: View {
         }
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        withDependencies {
-            $0.cartClient = .preview
-            $0.productsClient = .preview
-            $0.numberFormatter = .USD
-        } operation: {
-            ContentView()
-        }
-    }
-}
