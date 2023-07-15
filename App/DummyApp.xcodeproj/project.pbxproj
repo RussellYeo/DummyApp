@@ -7,35 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46073D362A45856F006D2C81 /* SharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = 46073D352A45856F006D2C81 /* SharedUI */; };
-		46073D382A458664006D2C81 /* HomeFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 46073D372A458664006D2C81 /* HomeFeature */; };
-		464BD2022A516F4700F7F46B /* SharedModels in Frameworks */ = {isa = PBXBuildFile; productRef = 464BD2012A516F4700F7F46B /* SharedModels */; };
-		46636B112A0F92D000624D9C /* DummyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B102A0F92D000624D9C /* DummyApp.swift */; };
-		46636B132A0F92D000624D9C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46636B122A0F92D000624D9C /* ContentView.swift */; };
-		46636B152A0F92D100624D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46636B142A0F92D100624D9C /* Assets.xcassets */; };
-		4679447F2A42D9FE00A36EA4 /* DummyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 4679447E2A42D9FE00A36EA4 /* DummyAPI */; };
-		468715B82A5DE914008E0E01 /* DummyAPILive in Frameworks */ = {isa = PBXBuildFile; productRef = 468715B72A5DE914008E0E01 /* DummyAPILive */; };
-		46BB16662A5DE95100C11A99 /* PathMonitorClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = 46BB16652A5DE95100C11A99 /* PathMonitorClientLive */; };
-		46C14B2E2A51B18F009FEC61 /* CartFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 46C14B2D2A51B18F009FEC61 /* CartFeature */; };
-		46F54B0C2A5E93FD00CE2B6E /* CartPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 46F54B0B2A5E93FD00CE2B6E /* CartPersistence */; };
-		46F54B0E2A5E940300CE2B6E /* CartPersistenceLive in Frameworks */ = {isa = PBXBuildFile; productRef = 46F54B0D2A5E940300CE2B6E /* CartPersistenceLive */; };
-		46F9AA812A3780160051F2E8 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 46F9AA802A3780160051F2E8 /* Dependencies */; };
+		46C639AF2A6287620033FB47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46C639AE2A6287620033FB47 /* Assets.xcassets */; };
+		46C639B32A62876C0033FB47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C639B12A62876C0033FB47 /* ContentView.swift */; };
+		46C639B42A62876C0033FB47 /* DummyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C639B22A62876C0033FB47 /* DummyApp.swift */; };
+		46C639B72A6288900033FB47 /* CartFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 46C639B62A6288900033FB47 /* CartFeature */; };
+		46F347A02A628B1C001604B4 /* HomeFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 46F3479F2A628B1C001604B4 /* HomeFeature */; };
+		46F347A22A628B81001604B4 /* CartPersistence in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347A12A628B81001604B4 /* CartPersistence */; };
+		46F347A42A628B81001604B4 /* CartPersistenceLive in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347A32A628B81001604B4 /* CartPersistenceLive */; };
+		46F347A62A628B81001604B4 /* DummyAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347A52A628B81001604B4 /* DummyAPI */; };
+		46F347A82A628B81001604B4 /* DummyAPILive in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347A72A628B81001604B4 /* DummyAPILive */; };
+		46F347AA2A628B81001604B4 /* PathMonitorClient in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347A92A628B81001604B4 /* PathMonitorClient */; };
+		46F347AC2A628B81001604B4 /* PathMonitorClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347AB2A628B81001604B4 /* PathMonitorClientLive */; };
+		46F347AE2A628B81001604B4 /* SharedModels in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347AD2A628B81001604B4 /* SharedModels */; };
+		46F347B02A628B81001604B4 /* SharedModelsMocks in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347AF2A628B81001604B4 /* SharedModelsMocks */; };
+		46F347B22A628B81001604B4 /* SharedModelsPreview in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347B12A628B81001604B4 /* SharedModelsPreview */; };
+		46F347B42A628B81001604B4 /* SharedUI in Frameworks */ = {isa = PBXBuildFile; productRef = 46F347B32A628B81001604B4 /* SharedUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		46053E852A51B33D00F1AA2A /* CartFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CartFeature; path = DummyApp/CartFeature; sourceTree = "<group>"; };
-		46073D302A4390AA006D2C81 /* HomeFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HomeFeature; path = DummyApp/HomeFeature; sourceTree = "<group>"; };
-		46073D342A4421AB006D2C81 /* SharedUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SharedUI; path = DummyApp/SharedUI; sourceTree = "<group>"; };
-		46073DA72A502010006D2C81 /* SharedModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SharedModels; path = DummyApp/SharedModels; sourceTree = "<group>"; };
-		465077DF2A518D0200132327 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		46636B0D2A0F92D000624D9C /* DummyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		46636B102A0F92D000624D9C /* DummyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyApp.swift; sourceTree = "<group>"; };
-		46636B122A0F92D000624D9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		46636B142A0F92D100624D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		466D7CB42A51B7D8003D0A5B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		466D7CB52A51C84C003D0A5B /* PathMonitorClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PathMonitorClient; path = DummyApp/PathMonitorClient; sourceTree = "<group>"; };
-		4679447C2A42D43700A36EA4 /* DummyAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DummyAPI; path = DummyApp/DummyAPI; sourceTree = "<group>"; };
-		46D716CF2A5E90CC00A04875 /* CartPersistence */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CartPersistence; path = DummyApp/CartPersistence; sourceTree = "<group>"; };
+		46C639AE2A6287620033FB47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		46C639B12A62876C0033FB47 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		46C639B22A62876C0033FB47 /* DummyApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyApp.swift; sourceTree = "<group>"; };
+		46C639B52A6287870033FB47 /* DummyApp */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DummyApp; path = ..; sourceTree = "<group>"; };
+		46F347B62A628BF2001604B4 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,43 +38,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				468715B82A5DE914008E0E01 /* DummyAPILive in Frameworks */,
-				46BB16662A5DE95100C11A99 /* PathMonitorClientLive in Frameworks */,
-				464BD2022A516F4700F7F46B /* SharedModels in Frameworks */,
-				46073D362A45856F006D2C81 /* SharedUI in Frameworks */,
-				46073D382A458664006D2C81 /* HomeFeature in Frameworks */,
-				4679447F2A42D9FE00A36EA4 /* DummyAPI in Frameworks */,
-				46F54B0E2A5E940300CE2B6E /* CartPersistenceLive in Frameworks */,
-				46F9AA812A3780160051F2E8 /* Dependencies in Frameworks */,
-				46F54B0C2A5E93FD00CE2B6E /* CartPersistence in Frameworks */,
-				46C14B2E2A51B18F009FEC61 /* CartFeature in Frameworks */,
+				46F347AA2A628B81001604B4 /* PathMonitorClient in Frameworks */,
+				46F347AE2A628B81001604B4 /* SharedModels in Frameworks */,
+				46F347AC2A628B81001604B4 /* PathMonitorClientLive in Frameworks */,
+				46F347B02A628B81001604B4 /* SharedModelsMocks in Frameworks */,
+				46F347A82A628B81001604B4 /* DummyAPILive in Frameworks */,
+				46F347A02A628B1C001604B4 /* HomeFeature in Frameworks */,
+				46F347B22A628B81001604B4 /* SharedModelsPreview in Frameworks */,
+				46F347A62A628B81001604B4 /* DummyAPI in Frameworks */,
+				46F347A22A628B81001604B4 /* CartPersistence in Frameworks */,
+				46F347B42A628B81001604B4 /* SharedUI in Frameworks */,
+				46F347A42A628B81001604B4 /* CartPersistenceLive in Frameworks */,
+				46C639B72A6288900033FB47 /* CartFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		465077DE2A518CF200132327 /* TestPlans */ = {
-			isa = PBXGroup;
-			children = (
-				465077DF2A518D0200132327 /* UnitTests.xctestplan */,
-			);
-			path = TestPlans;
-			sourceTree = "<group>";
-		};
 		46636B042A0F92D000624D9C = {
 			isa = PBXGroup;
 			children = (
-				466D7CB42A51B7D8003D0A5B /* README.md */,
-				46053E852A51B33D00F1AA2A /* CartFeature */,
-				46D716CF2A5E90CC00A04875 /* CartPersistence */,
-				4679447C2A42D43700A36EA4 /* DummyAPI */,
-				46073D302A4390AA006D2C81 /* HomeFeature */,
-				466D7CB52A51C84C003D0A5B /* PathMonitorClient */,
-				46073DA72A502010006D2C81 /* SharedModels */,
-				46073D342A4421AB006D2C81 /* SharedUI */,
-				46636B0F2A0F92D000624D9C /* DummyApp */,
-				465077DE2A518CF200132327 /* TestPlans */,
+				46C639B52A6287870033FB47 /* DummyApp */,
+				46C639B02A62876C0033FB47 /* iOS */,
+				46F347B52A628BDC001604B4 /* TestPlans */,
 				46636B0E2A0F92D000624D9C /* Products */,
 				4679447D2A42D9FE00A36EA4 /* Frameworks */,
 			);
@@ -93,21 +75,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		46636B0F2A0F92D000624D9C /* DummyApp */ = {
-			isa = PBXGroup;
-			children = (
-				46636B102A0F92D000624D9C /* DummyApp.swift */,
-				46636B122A0F92D000624D9C /* ContentView.swift */,
-				46636B142A0F92D100624D9C /* Assets.xcassets */,
-			);
-			path = DummyApp;
-			sourceTree = "<group>";
-		};
 		4679447D2A42D9FE00A36EA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		46C639B02A62876C0033FB47 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				46C639AE2A6287620033FB47 /* Assets.xcassets */,
+				46C639B12A62876C0033FB47 /* ContentView.swift */,
+				46C639B22A62876C0033FB47 /* DummyApp.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		46F347B52A628BDC001604B4 /* TestPlans */ = {
+			isa = PBXGroup;
+			children = (
+				46F347B62A628BF2001604B4 /* UnitTests.xctestplan */,
+			);
+			path = TestPlans;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,16 +117,18 @@
 			);
 			name = DummyApp;
 			packageProductDependencies = (
-				46F9AA802A3780160051F2E8 /* Dependencies */,
-				4679447E2A42D9FE00A36EA4 /* DummyAPI */,
-				46073D352A45856F006D2C81 /* SharedUI */,
-				46073D372A458664006D2C81 /* HomeFeature */,
-				464BD2012A516F4700F7F46B /* SharedModels */,
-				46C14B2D2A51B18F009FEC61 /* CartFeature */,
-				468715B72A5DE914008E0E01 /* DummyAPILive */,
-				46BB16652A5DE95100C11A99 /* PathMonitorClientLive */,
-				46F54B0B2A5E93FD00CE2B6E /* CartPersistence */,
-				46F54B0D2A5E940300CE2B6E /* CartPersistenceLive */,
+				46C639B62A6288900033FB47 /* CartFeature */,
+				46F3479F2A628B1C001604B4 /* HomeFeature */,
+				46F347A12A628B81001604B4 /* CartPersistence */,
+				46F347A32A628B81001604B4 /* CartPersistenceLive */,
+				46F347A52A628B81001604B4 /* DummyAPI */,
+				46F347A72A628B81001604B4 /* DummyAPILive */,
+				46F347A92A628B81001604B4 /* PathMonitorClient */,
+				46F347AB2A628B81001604B4 /* PathMonitorClientLive */,
+				46F347AD2A628B81001604B4 /* SharedModels */,
+				46F347AF2A628B81001604B4 /* SharedModelsMocks */,
+				46F347B12A628B81001604B4 /* SharedModelsPreview */,
+				46F347B32A628B81001604B4 /* SharedUI */,
 			);
 			productName = DummyApp;
 			productReference = 46636B0D2A0F92D000624D9C /* DummyApp.app */;
@@ -183,7 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46636B152A0F92D100624D9C /* Assets.xcassets in Resources */,
+				46C639AF2A6287620033FB47 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,8 +186,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46636B132A0F92D000624D9C /* ContentView.swift in Sources */,
-				46636B112A0F92D000624D9C /* DummyApp.swift in Sources */,
+				46C639B42A62876C0033FB47 /* DummyApp.swift in Sources */,
+				46C639B32A62876C0033FB47 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,46 +403,53 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		46073D352A45856F006D2C81 /* SharedUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SharedUI;
-		};
-		46073D372A458664006D2C81 /* HomeFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = HomeFeature;
-		};
-		464BD2012A516F4700F7F46B /* SharedModels */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SharedModels;
-		};
-		4679447E2A42D9FE00A36EA4 /* DummyAPI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DummyAPI;
-		};
-		468715B72A5DE914008E0E01 /* DummyAPILive */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DummyAPILive;
-		};
-		46BB16652A5DE95100C11A99 /* PathMonitorClientLive */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PathMonitorClientLive;
-		};
-		46C14B2D2A51B18F009FEC61 /* CartFeature */ = {
+		46C639B62A6288900033FB47 /* CartFeature */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CartFeature;
 		};
-		46F54B0B2A5E93FD00CE2B6E /* CartPersistence */ = {
+		46F3479F2A628B1C001604B4 /* HomeFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HomeFeature;
+		};
+		46F347A12A628B81001604B4 /* CartPersistence */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CartPersistence;
 		};
-		46F54B0D2A5E940300CE2B6E /* CartPersistenceLive */ = {
+		46F347A32A628B81001604B4 /* CartPersistenceLive */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CartPersistenceLive;
 		};
-		46F9AA802A3780160051F2E8 /* Dependencies */ = {
+		46F347A52A628B81001604B4 /* DummyAPI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 46F9AA7F2A3780160051F2E8 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
-			productName = Dependencies;
+			productName = DummyAPI;
+		};
+		46F347A72A628B81001604B4 /* DummyAPILive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DummyAPILive;
+		};
+		46F347A92A628B81001604B4 /* PathMonitorClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PathMonitorClient;
+		};
+		46F347AB2A628B81001604B4 /* PathMonitorClientLive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PathMonitorClientLive;
+		};
+		46F347AD2A628B81001604B4 /* SharedModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedModels;
+		};
+		46F347AF2A628B81001604B4 /* SharedModelsMocks */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedModelsMocks;
+		};
+		46F347B12A628B81001604B4 /* SharedModelsPreview */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedModelsPreview;
+		};
+		46F347B32A628B81001604B4 /* SharedUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

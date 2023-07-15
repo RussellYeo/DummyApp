@@ -1,13 +1,13 @@
 //
-//  DummyAppTests.swift
-//  DummyAppTests
+//  DummyAPILiveTests.swift
+//  
 //
-//  Created by Russell Yeo on 02/07/2023.
+//  Created by Russell Yeo on 15/07/2023.
 //
 
 import XCTest
 
-final class DummyAppTests: XCTestCase {
+final class DummyAPILiveTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,7 +27,7 @@ final class DummyAppTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

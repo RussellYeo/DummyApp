@@ -1,0 +1,52 @@
+{
+  "configurations" : [
+    {
+      "id" : "85034D77-B453-420A-9503-4D2799C6029B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "CartFeatureTests",
+        "name" : "CartFeatureTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "CartPersistenceLiveTests",
+        "name" : "CartPersistenceLiveTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "DummyAPILiveTests",
+        "name" : "DummyAPILiveTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "HomeFeatureTests",
+        "name" : "HomeFeatureTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..",
+        "identifier" : "PathMonitorClientLiveTests",
+        "name" : "PathMonitorClientLiveTests"
+      }
+    }
+  ],
+  "version" : 1
+}
